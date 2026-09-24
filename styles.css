@@ -1,0 +1,147 @@
+:root {
+  --bg: #0b0c10;
+  --bg-alt: #14161d;
+  --text: #f2f3f5;
+  --text-muted: #9ca0ab;
+  --accent: #6c5ce7;
+  --accent-hover: #7d6ff2;
+  --border: #262832;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f7f7fb;
+    --bg-alt: #ffffff;
+    --text: #14161d;
+    --text-muted: #5b5f6b;
+    --accent: #6c5ce7;
+    --accent-hover: #5a48d8;
+    --border: #e3e4ea;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: radial-gradient(circle at 50% 0%, var(--bg-alt), var(--bg) 60%);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 560px;
+  text-align: center;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 48px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+}
+
+.logo-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: white;
+  font-size: 1rem;
+}
+
+h1 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  line-height: 1.2;
+  margin: 0 0 16px;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0 0 40px;
+}
+
+.notify-form {
+  display: flex;
+  gap: 10px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.notify-form input[type="email"] {
+  flex: 1;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-alt);
+  color: var(--text);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.15s ease;
+  min-width: 0;
+}
+
+.notify-form input[type="email"]:focus {
+  border-color: var(--accent);
+}
+
+.notify-form button {
+  padding: 14px 22px;
+  border-radius: 10px;
+  border: none;
+  background: var(--accent);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s ease;
+}
+
+.notify-form button:hover {
+  background: var(--accent-hover);
+}
+
+.form-message {
+  min-height: 1.4em;
+  margin: 16px 0 0;
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+
+@media (max-width: 480px) {
+  .notify-form {
+    flex-direction: column;
+  }
+}
+
+footer {
+  margin-top: 64px;
+}
+
+footer p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin: 0;
+}

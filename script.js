@@ -90,6 +90,11 @@
   var visible = true;
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(function (en) { visible = en[0].isIntersecting; }, { threshold: 0 }).observe(container);
+    // Re-check immediately in case the observer's first callback raced the page's layout/scroll setup (Lenis, async Tailwind) and misreported.
+    requestAnimationFrame(function () {
+      var r = container.getBoundingClientRect();
+      if (r.bottom > 0 && r.top < window.innerHeight) visible = true;
+    });
   }
 
   var clock = new THREE.Clock();

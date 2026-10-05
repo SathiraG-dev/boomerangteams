@@ -1,448 +1,1211 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Boomerang Teams — Throw It Right, and It Always Comes Back</title>
-<meta name="description" content="Boomerang Teams is a Sri Lankan content & growth agency. Personal branding and business branding systems built to generate leads, not just likes — backed by a 1,000,000-view guarantee." />
-<link rel="icon" href="logo.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
-</head>
-<body>
+<!DOCTYPE html>
 
-<div class="scroll-progress" id="scroll-progress"></div>
-<nav class="nav" id="nav">
-  <div class="container nav-inner">
-    <a href="#top" class="nav-brand">
-      <div class="nav-logo"><img src="logo.png" alt="Boomerang Teams" /></div>
-    </a>
-    <ul class="nav-links">
-      <li><a href="#top">Home</a></li>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="nav-cta">
-      <a href="#contact" class="btn btn-ghost btn-small">Book a Call</a>
-    </div>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>Boomerang Teams — Throw It Right, and It Always Comes Back</title><meta name="description" content="Boomerang Teams is a creative content and personal-branding studio in Colombo, Sri Lanka. We turn boring brands into internet famous — and people into brands."/><link rel="icon" href="logo.png"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>(function(){var r=document.documentElement;if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add('has-js');setTimeout(function(){if(!window.__animReady)r.classList.remove('has-js')},6000);}})();</script>
+<link rel="stylesheet" href="styles.css"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "on-tertiary-container": "#28373a",
+          "on-secondary-fixed": "#001f28",
+          "surface-bright": "#f6fafe",
+          "on-secondary": "#ffffff",
+          "surface-variant": "#dfe3e7",
+          "tertiary-fixed-dim": "#b9c9cd",
+          "on-tertiary": "#ffffff",
+          "primary-container": "#28abc9",
+          "inverse-on-surface": "#edf1f5",
+          "background": "#f6fafe",
+          "surface-container-lowest": "#ffffff",
+          "error-container": "#ffdad6",
+          "surface-container-low": "#f0f4f8",
+          "on-primary-fixed-variant": "#004e5e",
+          "tertiary-container": "#90a0a4",
+          "secondary-fixed": "#b4ebff",
+          "outline-variant": "#bcc8cd",
+          "outline": "#6d797d",
+          "on-primary-fixed": "#001f27",
+          "on-tertiary-fixed": "#0e1e21",
+          "surface": "#f4f9fb",
+          "tertiary": "#516165",
+          "surface-container-high": "#e4e9ed",
+          "on-tertiary-fixed-variant": "#3a494d",
+          "on-error-container": "#93000a",
+          "surface-container-highest": "#dfe3e7",
+          "on-secondary-container": "#1f697d",
+          "on-error": "#ffffff",
+          "surface-dim": "#d6dadf",
+          "on-secondary-fixed-variant": "#004e5f",
+          "primary-fixed-dim": "#61d5f4",
+          "secondary-fixed-dim": "#8ed0e7",
+          "primary": "#00687c",
+          "on-primary": "#ffffff",
+          "surface-tint": "#00687c",
+          "error": "#ba1a1a",
+          "secondary": "#0e5f73",
+          "secondary-container": "#a4e7fe",
+          "tertiary-fixed": "#d5e5e9",
+          "primary-fixed": "#b0ecff",
+          "on-surface": "#0a0f12",
+          "on-primary-container": "#003a47",
+          "on-surface-variant": "#3d494c",
+          "surface-container": "#eaeef3",
+          "on-background": "#0a0f12",
+          "inverse-primary": "#61d5f4",
+          "inverse-surface": "#2c3134"
+        },
+        borderRadius: {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        spacing: {
+          "margin-lg": "5rem",
+          "space-xs": "0.375rem",
+          "margin": "1.25rem",
+          "gutter": "1.5rem",
+          "gutter-lg": "2.5rem",
+          "space-md": "1.25rem",
+          "space-lg": "2rem",
+          "space-sm": "0.75rem",
+          "margin-md": "2.5rem",
+          "space-xl": "3.5rem"
+        },
+        fontFamily: {
+          "display-lg": ["Bebas Neue"],
+          "label-caps-lg": ["Inter", "Manrope"],
+          "display-lg-mobile": ["Bebas Neue"],
+          "label-text": ["Inter", "Manrope"],
+          "label-caps-sm": ["Inter", "Manrope"],
+          "headline-lg": ["Bebas Neue"],
+          "display-xl": ["Bebas Neue"],
+          "body-md": ["Inter", "Manrope"],
+          "body-lg": ["Inter", "Manrope"],
+          "body-xl": ["Inter", "Manrope"],
+          "headline-sm": ["Bebas Neue"],
+          "headline-md": ["Bebas Neue"],
+          "display-xl-mobile": ["Bebas Neue"]
+        },
+        fontSize: {
+          "display-lg": ["64px", {"lineHeight": "68px", "letterSpacing": "0.02em", "fontWeight": "400"}],
+          "label-caps-lg": ["13px", {"lineHeight": "18px", "letterSpacing": "0.12em", "fontWeight": "700"}],
+          "display-lg-mobile": ["40px", {"lineHeight": "44px", "letterSpacing": "0.02em", "fontWeight": "400"}],
+          "label-text": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+          "label-caps-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.14em", "fontWeight": "700"}],
+          "headline-lg": ["44px", {"lineHeight": "48px", "letterSpacing": "0.03em", "fontWeight": "400"}],
+          "display-xl": ["96px", {"lineHeight": "96px", "letterSpacing": "0.02em", "fontWeight": "400"}],
+          "body-md": ["15px", {"lineHeight": "24px", "fontWeight": "400"}],
+          "body-lg": ["17px", {"lineHeight": "28px", "fontWeight": "400"}],
+          "body-xl": ["20px", {"lineHeight": "32px", "fontWeight": "400"}],
+          "headline-sm": ["24px", {"lineHeight": "28px", "letterSpacing": "0.04em", "fontWeight": "400"}],
+          "headline-md": ["32px", {"lineHeight": "36px", "letterSpacing": "0.03em", "fontWeight": "400"}],
+          "display-xl-mobile": ["56px", {"lineHeight": "58px", "letterSpacing": "0.02em", "fontWeight": "400"}]
+        }
+      }
+    }
+  };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-white">
+<!-- FIXED HEADER WITH OFFICIAL BRAND LOGO -->
+<div id="scroll-progress" aria-hidden="true"></div>
+<header id="site-header" class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/85 backdrop-blur-xl border-b border-surface-container-high/60 shadow-[0_1px_10px_rgba(0,0,0,0.03)]">
+<div class="h-20 max-w-[1360px] mx-auto px-margin md:px-margin-md lg:px-margin-lg flex items-center justify-between gap-space-md">
+<!-- Brand Logo Container styled cleanly with contrast -->
+<a class="flex items-center gap-2 shrink-0 group focus:outline-none" href="#">
+<img alt="Boomerang Teams" class="h-10 md:h-11 w-auto object-contain transition-transform group-hover:scale-[1.03]" src="assets/logo-light.png" width="720" height="293"/>
+</a>
+<nav class="hidden lg:flex items-center gap-space-lg" data-active-classes="text-primary font-bold">
+<a class="font-label-text text-label-text text-on-surface-variant hover:text-primary transition-colors" data-path="work" href="#work">Work</a>
+<a class="font-label-text text-label-text text-on-surface-variant hover:text-primary transition-colors" data-path="services" href="#services">Services</a>
+<a class="font-label-text text-label-text text-on-surface-variant hover:text-primary transition-colors" data-path="results" href="#results">Results</a>
+<a class="font-label-text text-label-text text-on-surface-variant hover:text-primary transition-colors" data-path="process" href="#process">Process</a>
+<a class="font-label-text text-label-text text-on-surface-variant hover:text-primary transition-colors" data-path="packages" href="#packages">Packages</a>
+<a class="font-label-text text-label-text text-on-surface-variant hover:text-primary transition-colors" data-path="contact" href="#contact">Contact</a>
 </nav>
-
-<div class="float-cta" id="float-cta">
-  <span class="float-cta-icon">🚀</span>
-  <p>Ready to make your content <strong>come back</strong>?</p>
-  <a href="#contact" class="btn btn-primary btn-small">Book a Call →</a>
-  <button class="float-cta-close" id="float-cta-close" aria-label="Dismiss">&times;</button>
+<div class="flex items-center gap-space-sm shrink-0">
+<a class="inline-flex items-center gap-space-xs bg-primary-container hover:bg-primary text-on-primary font-label-text text-label-text px-space-lg py-space-sm rounded-full shadow-sm hover:shadow-md transition-all group" data-path="contact" href="#contact">
+<span class="tracking-wide">Let's talk</span>
+<span class="material-symbols-outlined text-base transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">arrow_outward</span>
+</a>
+<a aria-label="Profile" class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0 text-on-primary hover:bg-primary-container transition-colors" href="#contact">
+<span class="material-symbols-outlined text-[18px]">person</span>
+</a>
+</div>
+</div>
+</header>
+<main class="w-full pt-20 bg-surface min-h-[calc(100vh-20rem)]">
+<div class="flex flex-col w-full relative page-wrap">
+<!-- SIGNATURE BOOMERANG CONTINUOUS RUNNING SVG LAYER WITH DYNAMIC PATH STROKE -->
+<div aria-hidden="true" class="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+<svg class="w-full h-full stroke-primary-container fill-none" id="trajectory-svg" preserveaspectratio="none" viewbox="0 0 1440 5600">
+<defs>
+<lineargradient id="boomerangGrad" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#28abc9" stop-opacity="0.3"></stop>
+<stop offset="25%" stop-color="#28abc9" stop-opacity="0.65"></stop>
+<stop offset="50%" stop-color="#0e5f73" stop-opacity="0.45"></stop>
+<stop offset="75%" stop-color="#28abc9" stop-opacity="0.65"></stop>
+<stop offset="100%" stop-color="#28abc9" stop-opacity="0.85"></stop>
+</lineargradient>
+<filter height="160%" id="cyanGlow" width="160%" x="-30%" y="-30%">
+<fegaussianblur result="blur" stddeviation="6"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blur" operator="over"></fecomposite>
+</filter>
+</defs>
+<!-- Graceful descending trajectory mimicking the aerodynamic boomerang flight -->
+<path class="animated-trajectory opacity-80" d="M 1250,180 
+                     C 1050,420 180,680 140,1180 
+                     C 100,1650 1320,1820 1300,2300 
+                     C 1280,2700 180,2950 200,3450 
+                     C 220,3920 1260,4100 1220,4650 
+                     C 1180,5100 240,5180 620,5450" id="signature-path" stroke="url(#boomerangGrad)" stroke-width="2.5"></path>
+<!-- Energy pulse nodes -->
+<circle cx="140" cy="1180" fill="#28abc9" filter="url(#cyanGlow)" r="6"></circle>
+<circle cx="1300" cy="2300" fill="#28abc9" filter="url(#cyanGlow)" r="6"></circle>
+<circle cx="200" cy="3450" fill="#28abc9" filter="url(#cyanGlow)" r="6"></circle>
+<circle cx="1220" cy="4650" fill="#28abc9" filter="url(#cyanGlow)" r="6"></circle>
+</svg>
+</div>
+<!-- ========================================================================= -->
+<!-- 1. ABOVE-THE-FOLD HERO SECTION WITH 3D KINETIC THREE.JS SPLIT            -->
+<!-- ========================================================================= -->
+<section id="hero" class="relative z-10 w-full pt-space-md lg:pt-space-lg pb-space-lg">
+<!-- OPTIONAL HERO AMBIENT VIDEO (from Google Flow): uncomment, set src + poster. Sits behind the text, never over it.
+<div aria-hidden="true" class="absolute inset-0 overflow-hidden pointer-events-none hidden md:block -z-10">
+  <video src="hero-boomerang.mp4" poster="hero-poster.jpg" autoplay muted loop playsinline preload="auto"
+    class="absolute right-0 top-0 h-full w-[60%] object-cover opacity-40"
+    style="mix-blend-mode:multiply;-webkit-mask-image:linear-gradient(to left,#000 35%,transparent 100%);mask-image:linear-gradient(to left,#000 35%,transparent 100%)"></video>
+</div>
+-->
+<div class="max-w-[1360px] mx-auto px-margin md:px-margin-md lg:px-margin-lg flex flex-col">
+<!-- DYNAMIC 2-COLUMN HERO SPLIT -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center min-h-[520px] lg:min-h-[580px]">
+<!-- Left: Bold Typography, Proof Badges, CTAs -->
+<div class="lg:col-span-7 flex flex-col justify-center ">
+<!-- Eyebrow Pill Indicator -->
+<div data-hero="eyebrow" class="inline-flex items-center gap-space-xs bg-secondary-container/40 text-secondary border border-primary-container/20 px-space-md py-1.5 rounded-full w-fit mb-space-md shadow-xs">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-caps-sm text-label-caps-sm tracking-widest uppercase font-semibold">Creative Content Studio • Colombo, Sri Lanka</span>
+</div>
+<!-- Main Monumental Title -->
+<h1 id="hero-title" class="font-display-xl text-[56px] sm:text-[76px] xl:text-[92px] uppercase tracking-tight text-on-surface leading-[0.93]">
+            We turn boring brands into 
+            <span class="relative inline-block text-primary-container">
+              internet famous.
+              <svg class="absolute left-0 -bottom-1 sm:-bottom-2 w-full h-3.5 text-primary-container fill-none" preserveaspectratio="none" viewbox="0 0 300 12">
+<path d="M 0,6 Q 150,12 300,4" stroke="currentColor" stroke-linecap="round" stroke-width="4"></path>
+</svg>
+</span>
+<br class="hidden sm:inline"/>
+<span class="text-on-surface-variant font-body-xl text-[22px] leading-[1.3] sm:leading-[0.95] sm:text-headline-md tracking-normal font-normal normal-case block sm:inline mt-space-xs sm:mt-0 sm:ml-space-sm align-middle">
+              And we turn people into brands too.
+            </span>
+</h1>
+<p data-hero="sub" class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mt-space-md">
+            Video production • Social media management • Visual identity • Founder personal branding. Engineered with algorithmic precision and cinematic craft.
+          </p>
+<!-- CTAs -->
+<div data-hero="cta" class="mt-space-lg flex items-center flex-wrap gap-space-sm">
+<a class="inline-flex items-center gap-space-xs bg-primary-container hover:bg-primary text-on-primary font-label-text text-label-text px-space-lg py-space-sm rounded-full shadow-sm hover:shadow-md transition-all group" href="#results">
+<span>See our results</span>
+<span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+<a class="inline-flex items-center gap-space-xs bg-surface-container-lowest hover:bg-surface-container-low text-on-surface border border-outline-variant/40 font-label-text text-label-text px-space-lg py-space-sm rounded-full shadow-xs hover:shadow transition-all group" href="#contact">
+<span>Book an executive call</span>
+<span class="material-symbols-outlined text-base text-primary-container transition-transform group-hover:rotate-45">north_east</span>
+</a>
+</div>
+</div>
+<!-- Right: Interactive 3D Boomerang Model Tag with orbital velocity rings -->
+<div data-hero="visual" class="lg:col-span-5 relative w-full h-[400px] sm:h-[480px] lg:h-[580px] flex items-center justify-center ">
+<div class="absolute inset-0 bg-radial from-primary-container/10 via-transparent to-transparent rounded-full blur-2xl pointer-events-none"></div>
+<!-- 3D Three.js Interactive Web Component -->
+<div class="relative w-full h-full rounded-2xl overflow-hidden flex items-center justify-center">
+<!-- STITCH_THREEJS_START:ANIMATION_6 class="w-full h-full pointer-events-auto bg-transparent" -->
+<div class="w-full h-full pointer-events-auto bg-transparent" style="display:block;">
+<div id="threejs-container-ANIMATION_6" style="width:100%;height:100%"></div>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_6 -->
+<!-- Tactile Interactive Hint Badge -->
+<div class="absolute bottom-4 right-4 pointer-events-none flex items-center gap-1.5 px-3 py-1 bg-surface-container-lowest/80 backdrop-blur-md border border-outline-variant/30 rounded-full shadow-xs">
+<span class="material-symbols-outlined text-primary-container text-xs animate-spin" style="animation-duration: 4s;">3d_rotation</span>
+<span class="font-label-caps-sm text-[10px] text-tertiary uppercase tracking-wider">Move to tilt</span>
+</div>
+</div>
+</div>
+</div>
+<!-- HERO STATS BAND WITH ANIMATED COUNTERS -->
+<div id="hero-stats" class="grid grid-cols-2 lg:grid-cols-4 gap-gutter bg-surface-container-lowest/80 border border-outline-variant/30 backdrop-blur-md p-space-md lg:p-space-lg rounded-xl shadow-sm mt-space-md ">
+<div class="flex flex-col justify-between p-space-sm bg-surface-container-low/60 rounded-lg">
+<div class="flex items-baseline gap-1">
+<span class="font-display-lg text-display-lg text-on-surface counter" data-suffix="M" data-target="10">0M</span>
+<span class="font-display-lg text-display-lg text-primary-container">+</span>
+</div>
+<div>
+<p class="font-label-caps-lg text-label-caps-lg text-on-surface uppercase font-bold">Organic Views</p>
+<p class="font-body-md text-[13px] text-tertiary">Engineered scroll-stopping reach</p>
+</div>
+</div>
+<div class="flex flex-col justify-between p-space-sm bg-surface-container-low/60 rounded-lg">
+<div class="flex items-baseline gap-1">
+<span class="font-display-lg text-display-lg text-on-surface counter" data-suffix="K" data-target="50">0K</span>
+<span class="font-display-lg text-display-lg text-primary-container">+</span>
+</div>
+<div>
+<p class="font-label-caps-lg text-label-caps-lg text-on-surface uppercase font-bold">Followers Gained</p>
+<p class="font-body-md text-[13px] text-tertiary">Real, high-intent prospective buyers</p>
+</div>
+</div>
+<div class="flex flex-col justify-between p-space-sm bg-surface-container-low/60 rounded-lg">
+<div class="flex items-baseline gap-1">
+<span class="font-display-lg text-display-lg text-on-surface counter" data-suffix="" data-target="8">0</span>
+<span class="font-display-lg text-display-lg text-primary-container">+</span>
+</div>
+<div>
+<p class="font-label-caps-lg text-label-caps-lg text-on-surface uppercase font-bold">Key Tier Brands</p>
+<p class="font-body-md text-[13px] text-tertiary">Across auto, casino, luxury &amp; retail</p>
+</div>
+</div>
+<div class="flex flex-col justify-between p-space-sm bg-surface-container-low/60 rounded-lg">
+<div class="flex items-baseline gap-1">
+<span class="font-display-lg text-display-lg text-on-surface">0 → <span class="counter" data-target="500" data-suffix="">500</span></span>
+</div>
+<div>
+<p class="font-label-caps-lg text-label-caps-lg text-on-surface uppercase font-bold">1-Week Velocity</p>
+<p class="font-body-md text-[13px] text-primary font-semibold">Wearhouse.co viral launch spurt</p>
+</div>
+</div>
+</div>
+</div>
+<!-- CLIENT LOGO MARQUEE -->
+<div class="w-full mt-space-xl overflow-hidden py-space-sm bg-surface-container-lowest border-y border-outline-variant/30 shadow-xs">
+<div class="flex items-center gap-space-xl whitespace-nowrap animate-[marquee_28s_linear_infinite] w-max select-none">
+<img class="logo-chip logo-tall" src="assets/logos/light/bellagio.png" alt="Bellagio Sri Lanka" width="420" height="324" loading="eager" draggable="false"/>
+<img class="logo-chip logo-tall" src="assets/logos/light/romance-valley.png" alt="Romance Valley" width="420" height="319" loading="eager" draggable="false"/>
+<img class="logo-chip logo-tall" src="assets/logos/light/milton-motors.png" alt="Milton Motors" width="420" height="404" loading="eager" draggable="false"/>
+<img class="logo-chip logo-etec" src="assets/logos/light/milton-etec.png" alt="Milton E-Tec" width="420" height="39" loading="eager" draggable="false"/>
+<span class="logo-chip font-headline-sm text-headline-sm uppercase tracking-wider text-tertiary">Mawathe Abhiman</span>
+<img class="logo-chip" src="assets/logos/light/honri.png" alt="Honri" width="420" height="128" loading="eager" draggable="false"/>
+<span class="logo-chip font-headline-sm text-headline-sm uppercase tracking-wider text-tertiary">Wearhouse.co</span>
+<img class="logo-chip logo-tall" src="assets/logos/light/trekpack.png" alt="Trek Pack" width="420" height="273" loading="eager" draggable="false"/>
+<img class="logo-chip" src="assets/logos/light/autoshop-expert.png" alt="AutoShop Expert" width="420" height="117" loading="eager" draggable="false"/>
+</div>
 </div>
 
-<main id="top">
-
-  <!-- HERO -->
-  <header class="hero" id="hero">
-    <div class="hero-grid-bg"></div>
-    <div class="hero-mesh">
-      <div class="mesh-blob mesh-1"></div>
-      <div class="mesh-blob mesh-2"></div>
-      <div class="mesh-blob mesh-3"></div>
-    </div>
-
-    <div class="hero-content">
-      <span class="hero-badge">Boomerang Teams <span>·</span> Colombo, Sri Lanka</span>
-      <h1 class="hero-word">We'll get you <em>1,000,000 views</em> in 90 days.</h1>
-      <p class="hero-sub">
-        Throw it right, and it always comes back. That's the rule behind every
-        content and ad system we build — guaranteed, or we keep working.
-      </p>
-      <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary">Book a Call</a>
-        <a href="#work" class="btn btn-ghost">See the Work</a>
-      </div>
-      <div class="hero-badges">
-        <div class="mini-badge">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 6.9L22 9l-6 5 2 7-6-4-6 4 2-7-6-5 7.6-.1z"/></svg>
-          <div><strong>1,000,000-View Guarantee</strong><span>Or we keep working, free</span></div>
-        </div>
-        <div class="mini-badge">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-          <div><strong>Proven on Our Own Brand</strong><span>86 → 15,000+ followers</span></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero-split">
-      <div class="hero-split-media" id="hero-split-media">
-        <div class="hero-clouds">
-          <div class="cloud cloud-1"></div>
-          <div class="cloud cloud-2"></div>
-        </div>
-        <img src="assets/hero-visal.png" alt="Visal, founder of Boomerang Teams" id="hero-img" />
-        <span class="hero-media-tag">Visal <span>·</span> Founder</span>
-      </div>
-      <div class="hero-split-vision" id="hero-split-vision">
-        <p class="eyebrow">The Vision</p>
-        <p class="vision-quote">
-          "I want every rupee a brand spends on content to <span>come back</span> —
-          not disappear into a feed. That's not a tagline. It's the only system I build,
-          for myself first and for every client after."
+<!-- ========================================================================= -->
+<!-- 2. WHAT WE DO (PINNED EDITORIAL TWO-COLUMN)                                -->
+<!-- ========================================================================= -->
+<section class="relative z-10 w-full py-space-xl" id="services">
+<div class="max-w-[1360px] mx-auto px-margin md:px-margin-md lg:px-margin-lg">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-start">
+<!-- Left Sticky Column -->
+<div data-rv class="lg:col-span-5 lg:sticky lg:top-28 flex flex-col gap-space-md ">
+<div class="flex items-center gap-space-xs text-primary font-label-caps-sm text-label-caps-sm uppercase tracking-widest font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+<span>Strategic Execution Matrix</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg lg:text-display-lg uppercase text-on-surface tracking-tight leading-none">
+            What We Do
+          </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+            Attention is the single rarest currency online. We bridge raw creative intuition with ruthless distribution algorithms so your content compounds into long-term commercial leverage.
+          </p>
+<div id="svc-indicator" class="flex flex-col gap-2" aria-hidden="true"><span id="svc-label" class="font-label-caps-sm text-label-caps-sm uppercase tracking-widest text-tertiary">01 / 04</span><div class="flex gap-1.5"><span class="svc-tick on"></span><span class="svc-tick"></span><span class="svc-tick"></span><span class="svc-tick"></span></div></div>
+<div class="p-space-md bg-surface-container-low/70 border border-outline-variant/30 rounded-xl flex flex-col gap-space-sm mt-space-sm backdrop-blur-xs">
+<div class="flex items-center gap-space-xs text-primary font-label-text text-label-text font-bold">
+<span class="material-symbols-outlined text-primary">cyclone</span>
+<span>The Boomerang Principle</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Every video, frame, and word you launch into the digital ether must return tangible value: inbound deals, brand equity, or viral brand advocacy.
+            </p>
+</div>
+</div>
+<!-- Right Service Cards Column with Hairline Cyan Borders & Hover Lift -->
+<div class="lg:col-span-7 flex flex-col gap-space-lg">
+<!-- Card 01: Video Production -->
+<div data-rv class="interactive-card group bg-surface-container-lowest p-space-lg rounded-xl border border-outline-variant/40 shadow-sm ">
+<div class="flex items-start justify-between gap-space-sm mb-space-sm">
+<span class="font-display-lg text-display-lg text-primary-container leading-none group-hover:scale-105 transition-transform">01</span>
+<span class="px-space-sm py-1 bg-secondary-container/40 text-on-secondary-container font-label-caps-sm text-label-caps-sm rounded-full uppercase font-bold">Retention Science</span>
+</div>
+<h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary transition-colors">Video Production</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
+              High-retention short-form, cinematic brand documentaries, Instagram Reels &amp; TikToks calibrated to capture attention in the first 0.8 seconds and sustain 85%+ completion rates.
+            </p>
+<div class="flex flex-wrap gap-space-xs mt-space-md pt-space-sm">
+<span class="px-3 py-1 bg-surface-container-low rounded-full font-label-text text-[12px] text-tertiary">Hook Engineering</span>
+<span class="px-3 py-1 bg-surface-container-low rounded-full font-label-text text-[12px] text-tertiary">Cinematic 4K Shoot</span>
+<span class="px-3 py-1 bg-surface-container-low rounded-full font-label-text text-[12px] text-tertiary">Sound Design</span>
+<span class="px-3 py-1 bg-surface-container-low rounded-full font-label-text text-[12px] text-tertiary">B-Roll Mastery</span>
+</div>
+</div>
+<!-- Card 02: Social Media & Content -->
+<div data-rv class="interactive-card group bg-surface-container-lowest p-space-lg rounded-xl border border-outline-variant/40 shadow-sm ">
+<div class="flex items-start justify-between gap-space-sm mb-space-sm">
+<span class="font-display-lg text-display-lg text-primary-container leading-none group-hover:scale-105 transition-transform">02</span>
+<span class="px-space-sm py-1 bg-secondary-container/40 text-on-secondary-container font-label-caps-sm text-label-caps-sm rounded-full uppercase font-bold">Algorithm Mastery</span>
+</div>
+<h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary transition-colors">Social Media &amp; Content</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
+              End-to-end organic growth operations. We engineer daily algorithmic momentum, carousel design systems, real-time community ignition, and rigorous trend-jacking.
+            </p>
+<div class="flex flex-wrap gap-space-xs mt-space-md pt-space-sm">
+<span class="px-3 py-1 bg-surface-container-low rounded-full font-label-text text-[12px] text-tertiary">Calendar Architecture</span>
+<span class="px-3 py-1 bg-surface-container-low rounded-full font-label-text text-[12px] text-tertiary">Community Firestarter</span>
+<span class="px-3 py-1 bg-surface-container-low rounded-full font-label-text text-[12px] text-tertiary">Data-Led Iteration</span>
+</div>
+</div>
+<!-- Card 03: Branding & Rebranding -->
+<div data-rv class="interactive-card group bg-surface-container-lowest p-space-lg rounded-xl border border-outline-variant/40 shadow-sm ">
+<div class="flex items-start justify-between gap-space-sm mb-space-sm">
+<span class="font-display-lg text-display-lg text-primary-container leading-none group-hover:scale-105 transition-transform">03</span>
+<span class="px-space-sm py-1 bg-secondary-container/40 text-on-secondary-container font-label-caps-sm text-label-caps-sm rounded-full uppercase font-bold">Visual Prestige</span>
+</div>
+<h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary transition-colors">Branding &amp; Rebranding</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
+              Complete visual identities, bespoke typographic hierarchies, voice guidelines, and digital brand packaging that position you head and shoulders above stale competitors.
+            </p>
+<div class="flex flex-wrap gap-space-xs mt-space-md pt-space-sm">
+<span class="px-3 py-1 bg-surface-container-low rounded-full font-label-text text-[12px] text-tertiary">Brand Books</span>
+<span class="px-3 py-1 bg-surface-container-low rounded-full font-label-text text-[12px] text-tertiary">Identity Design</span>
+<span class="px-3 py-1 bg-surface-container-low rounded-full font-label-text text-[12px] text-tertiary">Packaging Systems</span>
+</div>
+</div>
+<!-- Card 04: Personal Branding -->
+<div data-rv class="interactive-card group bg-surface-container-lowest p-space-lg rounded-xl border border-outline-variant/40 shadow-sm ">
+<div class="flex items-start justify-between gap-space-sm mb-space-sm">
+<span class="font-display-lg text-display-lg text-primary-container leading-none group-hover:scale-105 transition-transform">04</span>
+<span class="px-space-sm py-1 bg-secondary-container/40 text-on-secondary-container font-label-caps-sm text-label-caps-sm rounded-full uppercase font-bold">Executive Magnetism</span>
+</div>
+<h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary transition-colors">Personal Branding</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
+              We turn corporate executives, startup founders, and innovators into respected industry thought leaders with ghostwritten LinkedIn essays, talking-head shorts, and podium content.
+            </p>
+<div class="flex flex-wrap gap-space-xs mt-space-md pt-space-sm">
+<span class="px-3 py-1 bg-surface-container-low rounded-full font-label-text text-[12px] text-tertiary">Executive Framing</span>
+<span class="px-3 py-1 bg-surface-container-low rounded-full font-label-text text-[12px] text-tertiary">Ghost-Producing</span>
+<span class="px-3 py-1 bg-surface-container-low rounded-full font-label-text text-[12px] text-tertiary">LinkedIn Dominance</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 3. FEATURED WORK (HORIZONTAL CASE STUDIES GALLERY)                        -->
+<!-- ========================================================================= -->
+<section class="relative z-10 w-full py-space-xl bg-surface-container-low/50" id="work">
+<div class="max-w-[1360px] mx-auto px-margin md:px-margin-md lg:px-margin-lg">
+<div data-rv class="work-head flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-lg ">
+<div>
+<div class="inline-flex items-center gap-space-xs text-primary font-label-caps-sm text-label-caps-sm uppercase tracking-widest mb-space-xs font-semibold">
+<span class="material-symbols-outlined text-sm">visibility</span>
+<span>Proof of Craft</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg lg:text-display-lg uppercase text-on-surface tracking-tight">Featured Work</h2>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-label-caps-sm text-label-caps-sm text-tertiary uppercase">Scroll to explore</span>
+<div class="flex items-center gap-1">
+<button aria-label="Previous work" class="w-10 h-10 rounded-full bg-surface-container-lowest border border-outline-variant/30 hover:bg-primary-container hover:text-on-primary flex items-center justify-center transition-all shadow-xs" id="gallery-prev">
+<span class="material-symbols-outlined text-lg">chevron_left</span>
+</button>
+<button aria-label="Next work" class="w-10 h-10 rounded-full bg-surface-container-lowest border border-outline-variant/30 hover:bg-primary-container hover:text-on-primary flex items-center justify-center transition-all shadow-xs" id="gallery-next">
+<span class="material-symbols-outlined text-lg">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Horizontal scrolling deck with 9:16 vertical cards -->
+<div id="work-progress" class="hidden lg:flex items-center gap-4 mb-5" aria-hidden="true"><span id="work-count" class="font-label-caps-sm text-label-caps-sm text-tertiary tracking-widest w-24">01–04 / 08</span><div class="flex-1 h-[3px] rounded-full bg-[#E4F5F9] overflow-hidden"><div id="work-progress-fill" class="h-full w-full origin-left bg-primary-container rounded-full" style="transform:scaleX(0)"></div></div></div>
+<div class="flex items-stretch gap-gutter overflow-x-auto pb-space-lg snap-x snap-mandatory scroll-smooth " id="work-carousel" style="scrollbar-width: none;">
+<!-- Case 1: Bellagio Casino Colombo -->
+<div class="interactive-card w-[280px] sm:w-[320px] shrink-0 snap-start bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/30 shadow-sm flex flex-col group">
+<div class="relative w-full aspect-[9/16] bg-on-tertiary-container overflow-hidden">
+<img class="work-img w-full h-full object-cover" data-alt="Cinematic luxury night footage inside high-end casino lounge in Colombo Sri Lanka with golden reflections, ambient mood lighting, crisp dynamic camera angle, and editorial color grade" src="assets/work/work-1.jpg" loading="lazy"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/90 via-transparent to-black/30"></div>
+<div class="absolute top-space-sm left-space-sm right-space-sm flex justify-between items-center">
+<span class="px-2.5 py-1 bg-surface-container-lowest/90 backdrop-blur-md rounded-full font-label-caps-sm text-label-caps-sm text-on-surface uppercase font-bold">Hospitality</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 bg-primary-container text-on-primary rounded-full font-label-text text-[11px] font-bold shadow-xs">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> 541K views
+              </span>
+</div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-14 h-14 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary-container group-hover:text-on-primary transition-all shadow-md">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-space-md left-space-md right-space-md text-on-primary">
+<p class="font-label-caps-sm text-label-caps-sm text-secondary-container uppercase tracking-wider">Bellagio Colombo</p>
+<h4 class="font-headline-sm text-headline-sm uppercase text-white leading-tight">High-Roller Nightlife Experience</h4>
+</div>
+</div>
+<div class="p-space-md flex flex-col justify-between flex-1 bg-surface-container-lowest">
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Complete aesthetic overhaul transforming nightlife perceptions across South Asia.</p>
+<div class="pt-space-sm flex items-center justify-between text-primary font-label-text text-[13px] font-bold">
+<span>View breakdown</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Case 2: Romance Valley -->
+<div class="interactive-card w-[280px] sm:w-[320px] shrink-0 snap-start bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/30 shadow-sm flex flex-col group">
+<div class="relative w-full aspect-[9/16] bg-on-tertiary-container overflow-hidden">
+<img class="work-img w-full h-full object-cover" data-alt="Ethereal aerial morning mist over an upscale boutique mountain resort in Ella Sri Lanka, cinematic drone capture with lush green hills and sunflare" src="assets/work/work-2.jpg" loading="lazy"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/90 via-transparent to-black/30"></div>
+<div class="absolute top-space-sm left-space-sm right-space-sm flex justify-between items-center">
+<span class="px-2.5 py-1 bg-surface-container-lowest/90 backdrop-blur-md rounded-full font-label-caps-sm text-label-caps-sm text-on-surface uppercase font-bold">Luxury Resort</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 bg-primary-container text-on-primary rounded-full font-label-text text-[11px] font-bold shadow-xs">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> 371K views
+              </span>
+</div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-14 h-14 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary-container group-hover:text-on-primary transition-all shadow-md">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-space-md left-space-md right-space-md text-on-primary">
+<p class="font-label-caps-sm text-label-caps-sm text-secondary-container uppercase tracking-wider">Romance Valley</p>
+<h4 class="font-headline-sm text-headline-sm uppercase text-white leading-tight">Complete Hospitality Rebrand</h4>
+</div>
+</div>
+<div class="p-space-md flex flex-col justify-between flex-1 bg-surface-container-lowest">
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Elevated booking inquiries by 240% during off-peak monsoon season.</p>
+<div class="pt-space-sm flex items-center justify-between text-primary font-label-text text-[13px] font-bold">
+<span>View breakdown</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Case 3: Milton Motors -->
+<div class="interactive-card w-[280px] sm:w-[320px] shrink-0 snap-start bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/30 shadow-sm flex flex-col group">
+<div class="relative w-full aspect-[9/16] bg-on-tertiary-container overflow-hidden">
+<img class="work-img w-full h-full object-cover" data-alt="High performance luxury supercar drifting in slow motion at dawn, cinematic lighting with neon teal reflections and tire smoke, automotive prestige photography" src="assets/work/work-3.jpg" loading="lazy"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/90 via-transparent to-black/30"></div>
+<div class="absolute top-space-sm left-space-sm right-space-sm flex justify-between items-center">
+<span class="px-2.5 py-1 bg-surface-container-lowest/90 backdrop-blur-md rounded-full font-label-caps-sm text-label-caps-sm text-on-surface uppercase font-bold">Automotive</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 bg-primary-container text-on-primary rounded-full font-label-text text-[11px] font-bold shadow-xs">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> 1.2M views
+              </span>
+</div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-14 h-14 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary-container group-hover:text-on-primary transition-all shadow-md">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-space-md left-space-md right-space-md text-on-primary">
+<p class="font-label-caps-sm text-label-caps-sm text-secondary-container uppercase tracking-wider">Milton Motors</p>
+<h4 class="font-headline-sm text-headline-sm uppercase text-white leading-tight">Automotive Showcase &amp; Viral Reels</h4>
+</div>
+</div>
+<div class="p-space-md flex flex-col justify-between flex-1 bg-surface-container-lowest">
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Grew page from 86 followers to 18,000+ enthusiastic automotive buyers.</p>
+<div class="pt-space-sm flex items-center justify-between text-primary font-label-text text-[13px] font-bold">
+<span>View breakdown</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Case 4: Mawathe Abhiman -->
+<div class="interactive-card w-[280px] sm:w-[320px] shrink-0 snap-start bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/30 shadow-sm flex flex-col group">
+<div class="relative w-full aspect-[9/16] bg-on-tertiary-container overflow-hidden">
+<img class="work-img w-full h-full object-cover" data-alt="Traditional Sri Lankan artisan sculpting intricately carved masks with golden backlight, dramatic documentary cinematography and high definition textures" src="assets/work/work-4.jpg" loading="lazy"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/90 via-transparent to-black/30"></div>
+<div class="absolute top-space-sm left-space-sm right-space-sm flex justify-between items-center">
+<span class="px-2.5 py-1 bg-surface-container-lowest/90 backdrop-blur-md rounded-full font-label-caps-sm text-label-caps-sm text-on-surface uppercase font-bold">Docu-Series</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 bg-primary-container text-on-primary rounded-full font-label-text text-[11px] font-bold shadow-xs">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> 420K views
+              </span>
+</div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-14 h-14 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary-container group-hover:text-on-primary transition-all shadow-md">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-space-md left-space-md right-space-md text-on-primary">
+<p class="font-label-caps-sm text-label-caps-sm text-secondary-container uppercase tracking-wider">Mawathe Abhiman</p>
+<h4 class="font-headline-sm text-headline-sm uppercase text-white leading-tight">Cultural Heritage Docu Series</h4>
+</div>
+</div>
+<div class="p-space-md flex flex-col justify-between flex-1 bg-surface-container-lowest">
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Authentic narrative storytelling reaching global diaspora audiences.</p>
+<div class="pt-space-sm flex items-center justify-between text-primary font-label-text text-[13px] font-bold">
+<span>View breakdown</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Case 5: Milton E-Tec -->
+<div class="interactive-card w-[280px] sm:w-[320px] shrink-0 snap-start bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/30 shadow-sm flex flex-col group">
+<div class="relative w-full aspect-[9/16] bg-on-tertiary-container overflow-hidden">
+<img class="work-img w-full h-full object-cover" data-alt="Futuristic electric vehicle charging station in Colombo modern urban environment with clean cyan LED highlights and sleek glass automotive design" src="assets/work/work-5.jpg" loading="lazy"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/90 via-transparent to-black/30"></div>
+<div class="absolute top-space-sm left-space-sm right-space-sm flex justify-between items-center">
+<span class="px-2.5 py-1 bg-surface-container-lowest/90 backdrop-blur-md rounded-full font-label-caps-sm text-label-caps-sm text-on-surface uppercase font-bold">EV Tech</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 bg-primary-container text-on-primary rounded-full font-label-text text-[11px] font-bold shadow-xs">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> 890K views
+              </span>
+</div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-14 h-14 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary-container group-hover:text-on-primary transition-all shadow-md">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-space-md left-space-md right-space-md text-on-primary">
+<p class="font-label-caps-sm text-label-caps-sm text-secondary-container uppercase tracking-wider">Milton E-Tec</p>
+<h4 class="font-headline-sm text-headline-sm uppercase text-white leading-tight">Electric Mobility Tech Unveil</h4>
+</div>
+</div>
+<div class="p-space-md flex flex-col justify-between flex-1 bg-surface-container-lowest">
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Explosive tech demo videos generating massive pre-orders islandwide.</p>
+<div class="pt-space-sm flex items-center justify-between text-primary font-label-text text-[13px] font-bold">
+<span>View breakdown</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Case 6: Honri Sri Lanka -->
+<div class="interactive-card w-[280px] sm:w-[320px] shrink-0 snap-start bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/30 shadow-sm flex flex-col group">
+<div class="relative w-full aspect-[9/16] bg-on-tertiary-container overflow-hidden">
+<img class="work-img w-full h-full object-cover" data-alt="Chic compact electric city hatchback car cruising coastal road in Sri Lanka at sunset with palm trees in backdrop, clean cinematic aesthetic" src="assets/work/work-6.jpg" loading="lazy"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/90 via-transparent to-black/30"></div>
+<div class="absolute top-space-sm left-space-sm right-space-sm flex justify-between items-center">
+<span class="px-2.5 py-1 bg-surface-container-lowest/90 backdrop-blur-md rounded-full font-label-caps-sm text-label-caps-sm text-on-surface uppercase font-bold">EV Launch</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 bg-primary-container text-on-primary rounded-full font-label-text text-[11px] font-bold shadow-xs">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> 650K views
+              </span>
+</div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-14 h-14 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary-container group-hover:text-on-primary transition-all shadow-md">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-space-md left-space-md right-space-md text-on-primary">
+<p class="font-label-caps-sm text-label-caps-sm text-secondary-container uppercase tracking-wider">Honri Sri Lanka</p>
+<h4 class="font-headline-sm text-headline-sm uppercase text-white leading-tight">EV City Car Launch Campaign</h4>
+</div>
+</div>
+<div class="p-space-md flex flex-col justify-between flex-1 bg-surface-container-lowest">
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">50 to 6,600 highly qualified prospective automotive buyers in 60 days.</p>
+<div class="pt-space-sm flex items-center justify-between text-primary font-label-text text-[13px] font-bold">
+<span>View breakdown</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Case 7: Wearhouse.co -->
+<div class="interactive-card w-[280px] sm:w-[320px] shrink-0 snap-start bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/30 shadow-sm flex flex-col group">
+<div class="relative w-full aspect-[9/16] bg-on-tertiary-container overflow-hidden">
+<img class="work-img w-full h-full object-cover" data-alt="High fashion streetwear model posing in Colombo warehouse architectural loft with moody shadow contrasts, minimalist apparel styling, and editorial film grain" src="assets/work/work-7.jpg" loading="lazy"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/90 via-transparent to-black/30"></div>
+<div class="absolute top-space-sm left-space-sm right-space-sm flex justify-between items-center">
+<span class="px-2.5 py-1 bg-surface-container-lowest/90 backdrop-blur-md rounded-full font-label-caps-sm text-label-caps-sm text-on-surface uppercase font-bold">Streetwear</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 bg-primary-container text-on-primary rounded-full font-label-text text-[11px] font-bold shadow-xs">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> 300K views
+              </span>
+</div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-14 h-14 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary-container group-hover:text-on-primary transition-all shadow-md">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-space-md left-space-md right-space-md text-on-primary">
+<p class="font-label-caps-sm text-label-caps-sm text-secondary-container uppercase tracking-wider">Wearhouse.co</p>
+<h4 class="font-headline-sm text-headline-sm uppercase text-white leading-tight">Viral Streetwear Drop Launch</h4>
+</div>
+</div>
+<div class="p-space-md flex flex-col justify-between flex-1 bg-surface-container-lowest">
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Brand new account ignition: 0 → 500 hyper-engaged followers in 7 days.</p>
+<div class="pt-space-sm flex items-center justify-between text-primary font-label-text text-[13px] font-bold">
+<span>View breakdown</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Case 8: Trek Pack -->
+<div class="interactive-card w-[280px] sm:w-[320px] shrink-0 snap-start bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/30 shadow-sm flex flex-col group">
+<div class="relative w-full aspect-[9/16] bg-on-tertiary-container overflow-hidden">
+<img class="work-img w-full h-full object-cover" data-alt="Hiker trekking along knife-edge mountain ridge in Knuckles mountain range Sri Lanka with technical backpack, dramatic cinematic clouds and sunrise glow" src="assets/work/work-8.jpg" loading="lazy"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/90 via-transparent to-black/30"></div>
+<div class="absolute top-space-sm left-space-sm right-space-sm flex justify-between items-center">
+<span class="px-2.5 py-1 bg-surface-container-lowest/90 backdrop-blur-md rounded-full font-label-caps-sm text-label-caps-sm text-on-surface uppercase font-bold">Travel Gear</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 bg-primary-container text-on-primary rounded-full font-label-text text-[11px] font-bold shadow-xs">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> 150K views
+              </span>
+</div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-14 h-14 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary-container group-hover:text-on-primary transition-all shadow-md">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-space-md left-space-md right-space-md text-on-primary">
+<p class="font-label-caps-sm text-label-caps-sm text-secondary-container uppercase tracking-wider">Trek Pack</p>
+<h4 class="font-headline-sm text-headline-sm uppercase text-white leading-tight">Adventure Gear UGC Flywheel</h4>
+</div>
+</div>
+<div class="p-space-md flex flex-col justify-between flex-1 bg-surface-container-lowest">
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">100 to 12K followers with 500K+ organic views using user storytelling.</p>
+<div class="pt-space-sm flex items-center justify-between text-primary font-label-text text-[13px] font-bold">
+<span>View breakdown</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 4. RESULTS: BEFORE &rarr; AFTER WITH DYNAMIC VELOCITY METRICS               -->
+<!-- ========================================================================= -->
+<section class="relative z-10 w-full py-space-xl" id="results">
+<div class="max-w-[1360px] mx-auto px-margin md:px-margin-md lg:px-margin-lg">
+<div data-rv class="max-w-2xl mb-space-lg ">
+<div class="inline-flex items-center gap-space-xs text-primary font-label-caps-sm text-label-caps-sm uppercase tracking-widest mb-space-xs font-semibold">
+<span class="material-symbols-outlined text-base">monitoring</span>
+<span>Verified Traction Metrics</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg lg:text-display-lg uppercase text-on-surface tracking-tight">
+          Before → After Trajectories
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          We do not deliver vanity metrics. We build compound audience assets that permanently alter the market standing of the brands we partner with.
         </p>
-        <div class="vision-author">
-          <strong>Visal</strong>
-          <span>Founder, Boomerang Teams</span>
-        </div>
-      </div>
-    </div>
-  </header>
+</div>
+<!-- Comparative Data Rows Card Container -->
+<div data-rv class="bg-surface-container-lowest border border-outline-variant/40 rounded-xl p-space-md md:p-space-lg shadow-sm flex flex-col gap-space-lg ">
+<!-- Row 1: Milton Motors -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs font-label-text text-label-text">
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-sm text-headline-sm uppercase text-on-surface">Milton Motors</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-tertiary font-label-caps-sm text-label-caps-sm uppercase">Auto Dealership</span>
+</div>
+<div class="flex items-center gap-space-md text-on-surface">
+<span class="text-tertiary font-mono">86 → <strong class="text-primary font-bold">18,000</strong> followers</span>
+<span class="inline-block w-1 h-1 rounded-full bg-tertiary"></span>
+<span class="text-primary-container font-bold">5M+ Organic Views</span>
+</div>
+</div>
+<div class="w-full h-3 rounded-full bg-surface-container-low overflow-hidden">
+<div class="progress-bar h-full bg-gradient-to-r from-primary-container to-primary rounded-full transition-all duration-1000" data-progress="94%" style="width: 0%;"></div>
+</div>
+<div class="flex justify-between items-center text-[12px] text-tertiary font-label-caps-sm">
+<span>Stagnant Baseline</span>
+<span>+20,830% Compounded Social Lift (94% velocity score)</span>
+</div>
+</div>
+<!-- Row 2: Milton E-Tec -->
+<div class="flex flex-col gap-space-xs pt-space-md border-t border-surface-container-low">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs font-label-text text-label-text">
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-sm text-headline-sm uppercase text-on-surface">Milton E-Tec</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-tertiary font-label-caps-sm text-label-caps-sm uppercase">Clean Mobility</span>
+</div>
+<div class="flex items-center gap-space-md text-on-surface">
+<span class="text-tertiary font-mono">75 → <strong class="text-primary font-bold">20,000</strong> followers</span>
+<span class="inline-block w-1 h-1 rounded-full bg-tertiary"></span>
+<span class="text-primary-container font-bold">5M+ Organic Views</span>
+</div>
+</div>
+<div class="w-full h-3 rounded-full bg-surface-container-low overflow-hidden">
+<div class="progress-bar h-full bg-gradient-to-r from-primary-container to-primary rounded-full transition-all duration-1000" data-progress="98%" style="width: 0%;"></div>
+</div>
+<div class="flex justify-between items-center text-[12px] text-tertiary font-label-caps-sm">
+<span>Pre-launch Phase</span>
+<span>Viral EV Market Leadership (98% velocity score)</span>
+</div>
+</div>
+<!-- Row 3: Honri Sri Lanka -->
+<div class="flex flex-col gap-space-xs pt-space-md border-t border-surface-container-low">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs font-label-text text-label-text">
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-sm text-headline-sm uppercase text-on-surface">Honri Sri Lanka</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-tertiary font-label-caps-sm text-label-caps-sm uppercase">EV City Fleet</span>
+</div>
+<div class="flex items-center gap-space-md text-on-surface">
+<span class="text-tertiary font-mono">50 → <strong class="text-primary font-bold">6,600</strong> followers</span>
+<span class="inline-block w-1 h-1 rounded-full bg-tertiary"></span>
+<span class="text-primary-container font-bold">1M+ Organic Views</span>
+</div>
+</div>
+<div class="w-full h-3 rounded-full bg-surface-container-low overflow-hidden">
+<div class="progress-bar h-full bg-gradient-to-r from-primary-container to-primary rounded-full transition-all duration-1000" data-progress="82%" style="width: 0%;"></div>
+</div>
+<div class="flex justify-between items-center text-[12px] text-tertiary font-label-caps-sm">
+<span>Empty Channel</span>
+<span>+13,100% Growth in 60 Days (82% velocity score)</span>
+</div>
+</div>
+<!-- Row 4: Trek Pack -->
+<div class="flex flex-col gap-space-xs pt-space-md border-t border-surface-container-low">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs font-label-text text-label-text">
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-sm text-headline-sm uppercase text-on-surface">Trek Pack</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-tertiary font-label-caps-sm text-label-caps-sm uppercase">Adventure D2C</span>
+</div>
+<div class="flex items-center gap-space-md text-on-surface">
+<span class="text-tertiary font-mono">100 → <strong class="text-primary font-bold">12,000</strong> followers</span>
+<span class="inline-block w-1 h-1 rounded-full bg-tertiary"></span>
+<span class="text-primary-container font-bold">500K+ Organic Views</span>
+</div>
+</div>
+<div class="w-full h-3 rounded-full bg-surface-container-low overflow-hidden">
+<div class="progress-bar h-full bg-gradient-to-r from-primary-container to-primary rounded-full transition-all duration-1000" data-progress="88%" style="width: 0%;"></div>
+</div>
+<div class="flex justify-between items-center text-[12px] text-tertiary font-label-caps-sm">
+<span>Dormant Handle</span>
+<span>Community-Driven UGC Multiplier (88% velocity score)</span>
+</div>
+</div>
+<!-- Row 5: Wearhouse.co -->
+<div class="flex flex-col gap-space-xs pt-space-md border-t border-surface-container-low">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs font-label-text text-label-text">
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-sm text-headline-sm uppercase text-on-surface">Wearhouse.co</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-tertiary font-label-caps-sm text-label-caps-sm uppercase">Street Apparel</span>
+</div>
+<div class="flex items-center gap-space-md text-on-surface">
+<span class="text-tertiary font-mono">0 → <strong class="text-primary font-bold">500</strong> followers (Week 1)</span>
+<span class="inline-block w-1 h-1 rounded-full bg-tertiary"></span>
+<span class="text-primary-container font-bold">300K+ Launch Views</span>
+</div>
+</div>
+<div class="w-full h-3 rounded-full bg-surface-container-low overflow-hidden">
+<div class="progress-bar h-full bg-gradient-to-r from-primary-container to-primary rounded-full transition-all duration-1000" data-progress="100%" style="width: 0%;"></div>
+</div>
+<div class="flex justify-between items-center text-[12px] text-tertiary font-label-caps-sm">
+<span>Day Zero Start</span>
+<span>Instant Sell-Out Drop Velocity (100% Launch Index)</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 5. PROCESS (3 FLUID STEPS ALONG THE BOOMERANG ARC)                       -->
+<!-- ========================================================================= -->
+<section class="relative z-10 w-full py-space-xl bg-surface-container-low/40" id="process">
+<div class="max-w-[1360px] mx-auto px-margin md:px-margin-md lg:px-margin-lg">
+<div data-rv class="text-center max-w-2xl mx-auto mb-space-xl ">
+<div class="inline-flex items-center gap-space-xs text-primary font-label-caps-sm text-label-caps-sm uppercase tracking-widest mb-space-xs font-semibold">
+<span class="material-symbols-outlined text-base">route</span>
+<span>The Continuous Return Arc</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg lg:text-display-lg uppercase text-on-surface tracking-tight">
+          How It Works
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          A three-stage flywheel designed for continuous momentum. We don't produce disconnected assets; we build self-sustaining organic acquisition machines.
+        </p>
+</div>
+<div id="process-grid" class="grid grid-cols-1 md:grid-cols-3 gap-gutter-lg relative">
+<div class="hidden md:block absolute left-[16.6%] right-[16.6%] -top-7 h-[3px]" aria-hidden="true"><div class="absolute inset-0 rounded-full bg-[#E4F5F9] overflow-hidden"><div id="process-line" class="h-full origin-left bg-primary-container" style="transform:scaleX(0)"></div></div><span class="proc-dot absolute -top-[5px] w-[13px] h-[13px] rounded-full border-2 border-primary-container bg-white" style="left:0"></span><span class="proc-dot absolute -top-[5px] w-[13px] h-[13px] rounded-full border-2 border-primary-container bg-white" style="left:calc(50% - 6.5px)"></span><span class="proc-dot absolute -top-[5px] w-[13px] h-[13px] rounded-full border-2 border-primary-container bg-white" style="left:calc(100% - 13px)"></span></div>
 
-  <!-- TRUSTED BY / CLIENT LOGOS -->
-  <section class="marquee-section">
-    <div class="marquee">
-      <div class="marquee-track">
-        <img src="assets/logos/bellagio.png" alt="Bellagio Sri Lanka" />
-        <img src="assets/logos/milton-motors.png" alt="Milton Motors" />
-        <img src="assets/logos/romance-valley.png" alt="Romance Valley" />
-        <img src="assets/logos/honri.png" alt="Honri" />
-        <img src="assets/logos/milton-etec.png" alt="Milton eTec" />
-        <img src="assets/logos/trekpack.png" alt="TrekPack" />
-        <img src="assets/logos/autoshop-expert.png" alt="AutoShop Expert" />
-        <img src="assets/logos/bellagio.png" alt="Bellagio Sri Lanka" />
-        <img src="assets/logos/milton-motors.png" alt="Milton Motors" />
-        <img src="assets/logos/romance-valley.png" alt="Romance Valley" />
-        <img src="assets/logos/honri.png" alt="Honri" />
-        <img src="assets/logos/milton-etec.png" alt="Milton eTec" />
-        <img src="assets/logos/trekpack.png" alt="TrekPack" />
-        <img src="assets/logos/autoshop-expert.png" alt="AutoShop Expert" />
-      </div>
-    </div>
-  </section>
-
-  <!-- PHILOSOPHY -->
-  <section class="philosophy reveal">
-    <div class="container">
-      <p class="eyebrow center">Philosophy</p>
-      <p class="philosophy-text">
-        Every piece of content should <span class="dim">come back.</span>
-        We build systems that turn attention into trust, and trust into
-        <span class="dim">revenue</span> — not views that vanish the moment you stop posting.
+<!-- Step 01 -->
+<div data-rv class="interactive-card bg-surface-container-lowest p-space-lg rounded-xl border border-outline-variant/30 shadow-sm flex flex-col justify-between group ">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="w-12 h-12 rounded-full bg-secondary-container/40 text-primary flex items-center justify-center font-display-lg text-headline-md">
+                01
+              </span>
+<span class="material-symbols-outlined text-tertiary text-2xl group-hover:text-primary-container transition-colors">psychology</span>
+</div>
+<h3 class="font-headline-md text-headline-md uppercase text-on-surface mb-space-xs">Understand the Brand</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Deep dive into brand identity, competitive whitespace, customer behavioral psychology, and core brand narrative. We find the authentic angle the market actually cares about.
+            </p>
+</div>
+<div class="mt-space-lg pt-space-sm border-t border-surface-container-high/60 flex items-center gap-space-xs font-label-caps-sm text-label-caps-sm text-primary uppercase font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+<span>Archetype Discovery • Hook Mining</span>
+</div>
+</div>
+<!-- Step 02 -->
+<div data-rv class="interactive-card bg-surface-container-lowest p-space-lg rounded-xl border border-outline-variant/30 shadow-sm flex flex-col justify-between group ">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="w-12 h-12 rounded-full bg-secondary-container/40 text-primary flex items-center justify-center font-display-lg text-headline-md">
+                02
+              </span>
+<span class="material-symbols-outlined text-tertiary text-2xl group-hover:text-primary-container transition-colors">video_camera_front</span>
+</div>
+<h3 class="font-headline-md text-headline-md uppercase text-on-surface mb-space-xs">Create the Content</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Scriptwriting, cinematic shoot days on location or studio, surgical editing, pacing calibration, and audio sound design crafted explicitly for maximum retention metrics.
+            </p>
+</div>
+<div class="mt-space-lg pt-space-sm border-t border-surface-container-high/60 flex items-center gap-space-xs font-label-caps-sm text-label-caps-sm text-primary uppercase font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+<span>Batch Shoots • High Retention Polish</span>
+</div>
+</div>
+<!-- Step 03 -->
+<div data-rv class="interactive-card bg-surface-container-lowest p-space-lg rounded-xl border border-outline-variant/30 shadow-sm flex flex-col justify-between group ">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="w-12 h-12 rounded-full bg-secondary-container/40 text-primary flex items-center justify-center font-display-lg text-headline-md">
+                03
+              </span>
+<span class="material-symbols-outlined text-tertiary text-2xl group-hover:text-primary-container transition-colors">rocket_launch</span>
+</div>
+<h3 class="font-headline-md text-headline-md uppercase text-on-surface mb-space-xs">Grow the Audience</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Strategic distribution, algorithmic timing, active comment ignition, community moderation, and iterative data refinement to convert viral views into paying pipeline.
+            </p>
+</div>
+<div class="mt-space-lg pt-space-sm border-t border-surface-container-high/60 flex items-center gap-space-xs font-label-caps-sm text-label-caps-sm text-primary uppercase font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+<span>Distribution • Audience Conversion</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 6. PACKAGES & PRICING                                                     -->
+<!-- ========================================================================= -->
+<section class="relative z-10 w-full py-space-xl" id="packages">
+<div class="max-w-[1360px] mx-auto px-margin md:px-margin-md lg:px-margin-lg">
+<div data-rv class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-xl ">
+<div class="max-w-xl">
+<div class="inline-flex items-center gap-space-xs text-primary font-label-caps-sm text-label-caps-sm uppercase tracking-widest mb-space-xs font-semibold">
+<span class="material-symbols-outlined text-base">sell</span>
+<span>Predictable Retainers</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg lg:text-display-lg uppercase text-on-surface tracking-tight">Packages &amp; Retainers</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+            Full-stack creative powerhouse at a fraction of the cost of building an in-house production studio in Colombo.
+          </p>
+</div>
+<div class="text-right">
+<span class="font-label-caps-sm text-label-caps-sm text-tertiary uppercase font-semibold">Billed Monthly • No Long-term Lock-in</span>
+</div>
+</div>
+<!-- 4 Pricing Cards Grid with Sleek Hover States -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter items-stretch">
+<!-- Package 1: Starter Content -->
+<div data-rv class="interactive-card bg-surface-container-lowest p-space-md lg:p-space-lg rounded-xl border border-outline-variant/40 shadow-sm flex flex-col justify-between ">
+<div>
+<span class="font-label-caps-sm text-label-caps-sm text-tertiary uppercase font-bold">Foundation Tier</span>
+<h3 class="font-headline-md text-headline-md uppercase text-on-surface mt-1">Starter Content</h3>
+<div class="my-space-md">
+<span class="font-body-md text-body-md text-tertiary font-bold">LKR</span>
+<span class="font-display-lg text-headline-lg text-on-surface ml-1">120,000</span>
+<span class="font-label-text text-label-text text-tertiary">/mo</span>
+</div>
+<ul class="flex flex-col gap-space-sm text-on-surface-variant font-body-md text-[14px]">
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-base">check_circle</span>
+<span><strong>12</strong> High-Retention Shorts</span>
+</li>
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-base">check_circle</span>
+<span><strong>4</strong> Designed Graphic Posts</span>
+</li>
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-base">check_circle</span>
+<span>Monthly Strategy Call</span>
+</li>
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-base">check_circle</span>
+<span>Monthly Analytics Audit</span>
+</li>
+</ul>
+</div>
+<div class="pt-space-lg">
+<a class="w-full inline-flex items-center justify-center gap-space-xs bg-surface-container-low hover:bg-surface-container-high text-on-surface font-label-text text-label-text py-space-sm rounded-full transition-colors" href="#contact">
+<span>Select Starter</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Package 2: Growth -->
+<div data-rv class="interactive-card bg-surface-container-lowest p-space-md lg:p-space-lg rounded-xl border border-outline-variant/40 shadow-sm flex flex-col justify-between ">
+<div>
+<span class="font-label-caps-sm text-label-caps-sm text-tertiary uppercase font-bold">Momentum Tier</span>
+<h3 class="font-headline-md text-headline-md uppercase text-on-surface mt-1">Growth</h3>
+<div class="my-space-md">
+<span class="font-body-md text-body-md text-tertiary font-bold">LKR</span>
+<span class="font-display-lg text-headline-lg text-on-surface ml-1">160,000</span>
+<span class="font-label-text text-label-text text-tertiary">/mo</span>
+</div>
+<ul class="flex flex-col gap-space-sm text-on-surface-variant font-body-md text-[14px]">
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-base">check_circle</span>
+<span><strong>20</strong> High-Retention Videos</span>
+</li>
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-base">check_circle</span>
+<span><strong>8</strong> Carousel Posts</span>
+</li>
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-base">check_circle</span>
+<span>Community Management</span>
+</li>
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-base">check_circle</span>
+<span>Weekly Analytics &amp; A/B Iteration</span>
+</li>
+</ul>
+</div>
+<div class="pt-space-lg">
+<a class="w-full inline-flex items-center justify-center gap-space-xs bg-surface-container-low hover:bg-surface-container-high text-on-surface font-label-text text-label-text py-space-sm rounded-full transition-colors" href="#contact">
+<span>Select Growth</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Package 3: Full Marketing Partner (Highlighted / Most Popular) -->
+<div data-rv class="interactive-card bg-surface-container-lowest p-space-md lg:p-space-lg rounded-xl border-2 border-primary-container shadow-md flex flex-col justify-between relative transform lg:-translate-y-2 ">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary-container text-on-primary font-label-caps-sm text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
+            Most Popular
+          </div>
+<div>
+<span class="font-label-caps-sm text-label-caps-sm text-primary uppercase font-bold">Dominance Tier</span>
+<h3 class="font-headline-md text-headline-md uppercase text-on-surface mt-1">Full Partner</h3>
+<div class="my-space-md">
+<span class="font-body-md text-body-md text-tertiary font-bold">LKR</span>
+<span class="font-display-lg text-headline-lg text-primary ml-1">210,000</span>
+<span class="font-label-text text-label-text text-tertiary">/mo</span>
+</div>
+<ul class="flex flex-col gap-space-sm text-on-surface font-body-md text-[14px]">
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-base">check_circle</span>
+<span><strong>30</strong> Omnichannel Short-Form Videos</span>
+</li>
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-base">check_circle</span>
+<span>Daily Stories &amp; Dynamic Polling</span>
+</li>
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-base">check_circle</span>
+<span><strong>Founder Personal Branding</strong> (1 Exec)</span>
+</li>
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-base">check_circle</span>
+<span>Dedicated Creative Director</span>
+</li>
+</ul>
+</div>
+<div class="pt-space-lg">
+<a class="w-full inline-flex items-center justify-center gap-space-xs bg-primary-container hover:bg-primary text-on-primary font-label-text text-label-text py-space-sm rounded-full shadow-sm transition-all group" href="#contact">
+<span>Claim Dominance</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Package 4: Elite Brand Partner -->
+<div data-rv class="interactive-card bg-surface-container-lowest p-space-md lg:p-space-lg rounded-xl border border-outline-variant/40 shadow-sm flex flex-col justify-between ">
+<div>
+<span class="font-label-caps-sm text-label-caps-sm text-tertiary uppercase font-bold">Enterprise Tier</span>
+<h3 class="font-headline-md text-headline-md uppercase text-on-surface mt-1">Elite Partner</h3>
+<div class="my-space-md">
+<span class="font-body-md text-body-md text-tertiary font-bold">LKR</span>
+<span class="font-display-lg text-headline-lg text-on-surface ml-1">240,000</span>
+<span class="font-label-text text-label-text text-tertiary">/mo</span>
+</div>
+<ul class="flex flex-col gap-space-sm text-on-surface-variant font-body-md text-[14px]">
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-base">check_circle</span>
+<span>Full On-Site Production Crew</span>
+</li>
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-base">check_circle</span>
+<span>Multi-Platform Domination</span>
+</li>
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-base">check_circle</span>
+<span>Founder Personal Brand &amp; PR Synergy</span>
+</li>
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-base">check_circle</span>
+<span>Priority 24/7 Slack War Room</span>
+</li>
+</ul>
+</div>
+<div class="pt-space-lg">
+<a class="w-full inline-flex items-center justify-center gap-space-xs bg-surface-container-low hover:bg-surface-container-high text-on-surface font-label-text text-label-text py-space-sm rounded-full transition-colors" href="#contact">
+<span>Select Elite</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Scope note -->
+<p class="font-label-caps-sm text-label-caps-sm text-tertiary uppercase text-center mt-space-md">
+        * Ad budget is not included in retainer fees. Bespoke enterprise &amp; regional scopes available upon request.
       </p>
-      <p class="philosophy-credit">— Visal, Founder</p>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section class="section section-alt" id="services">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow center">Two systems, one rule</p>
-        <h2>Nothing goes out unless it's built to come back.</h2>
-        <p>Whether it's your face or your business on the line, the same rule applies to both tracks we run.</p>
-      </div>
-      <div class="services-grid">
-        <div class="service-card reveal">
-          <span class="service-tag">Track 01</span>
-          <h3>Personal Branding</h3>
-          <p class="service-lede">For founders and execs who need to be trusted before their business is.</p>
-          <ul class="service-list">
-            <li>Content strategy & story arc</li>
-            <li>On-camera coaching & scripting</li>
-            <li>Short-form editing pipeline</li>
-            <li>Weekly content systems, not one-off posts</li>
-          </ul>
-          <a href="#contact" class="btn btn-ghost btn-small">Build My Personal Brand</a>
-        </div>
-        <div class="service-card reveal">
-          <span class="service-tag">Track 02</span>
-          <h3>Business Branding</h3>
-          <p class="service-lede">Content and ad systems built to generate leads, not just likes.</p>
-          <ul class="service-list">
-            <li>Paid + organic content systems</li>
-            <li>Lead-focused creative</li>
-            <li>Performance tracking & iteration</li>
-            <li>Campaign strategy tied to revenue</li>
-          </ul>
-          <a href="#contact" class="btn btn-ghost btn-small">Build My Business System</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BENEFITS (bento, hook = the guarantee) -->
-  <section class="section" id="about">
-    <div class="container">
-      <div class="guarantee-hook reveal">
-        <p class="eyebrow center">Why it comes back</p>
-        <h2><em>1,000,000 views</em> in 90 days.</h2>
-        <p>That's the guarantee behind every system we build — or we keep working, free, until you get there. Here's why brands trust us to deliver it:</p>
-      </div>
-      <div class="benefits-grid">
-        <div class="benefit-card reveal">
-          <div class="benefit-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-          </div>
-          <p>Systems, not stunts</p>
-        </div>
-        <div class="benefit-card reveal">
-          <div class="benefit-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 4v6c0 5-3.5 7.5-7 9-3.5-1.5-7-4-7-9V6l7-4z"/><path d="M9 12l2 2 4-4"/></svg>
-          </div>
-          <p>Proof before promises</p>
-        </div>
-        <div class="benefit-card stat reveal">
-          <div class="stat-num">5M+</div>
-          <div class="stat-label">Organic views generated for clients</div>
-        </div>
-        <div class="benefit-card reveal">
-          <div class="benefit-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>
-          </div>
-          <p>Personal trust before scale</p>
-        </div>
-        <div class="benefit-card reveal">
-          <div class="benefit-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V4a1 1 0 0 1 1-1h11l-1.5 5L16 13H5"/></svg>
-          </div>
-          <p>Built on our own brand first</p>
-        </div>
-        <div class="benefit-card wide reveal">
-          <div class="benefit-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 17H6a4 4 0 0 1 0-8h3M15 7h3a4 4 0 0 1 0 8h-3M8 12h8"/></svg>
-          </div>
-          <p>Content and ad systems, working together — not separately.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WORK / PORTFOLIO -->
-  <section class="section section-alt" id="work">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow center">Results, not portfolios of pretty posts</p>
-        <h2>We don't show you the reel. We show you what happened after it went live.</h2>
-        <p>A sample of the systems we've built and run for real clients across Sri Lanka.</p>
-      </div>
-      <div class="work-grid">
-        <div class="work-card featured reveal">
-          <div class="work-media"><img src="assets/logos/bellagio.png" alt="Bellagio Sri Lanka" /></div>
-          <div class="work-info">
-            <span class="work-tag">Hospitality</span>
-            <h3>Bellagio Casino Colombo</h3>
-            <p>A content system built to turn nightly footage into a steady stream of brand-building, floor-driving content.</p>
-            <a href="#contact" class="work-link">View Case Study →</a>
-          </div>
-        </div>
-        <div class="work-card reveal">
-          <div class="work-media"><img src="assets/logos/milton-motors.png" alt="Milton Motors" /></div>
-          <div class="work-info">
-            <span class="work-tag">Automotive</span>
-            <h3>Milton Motors</h3>
-            <p>A repeatable content push for every new arrival, instead of a one-off launch post.</p>
-            <a href="#contact" class="work-link">View Case Study →</a>
-          </div>
-        </div>
-        <div class="work-card reveal">
-          <div class="work-media"><img src="assets/logos/romance-valley.png" alt="Romance Valley" /></div>
-          <div class="work-info">
-            <span class="work-tag">Events & Experiences</span>
-            <h3>Romance Valley</h3>
-            <p>Story-driven content built to move viewers from watching to booking.</p>
-            <a href="#contact" class="work-link">View Case Study →</a>
-          </div>
-        </div>
-        <div class="work-card reveal">
-          <div class="work-media no-logo">MA</div>
-          <div class="work-info">
-            <span class="work-tag">Culture & Community</span>
-            <h3>Mawathe Abhiman</h3>
-            <p>A content system built to grow a cultural brand's reach while staying true to what it stands for.</p>
-            <a href="#contact" class="work-link">View Case Study →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS (marquee) -->
-  <section class="section" id="testimonials">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow center">What it sounds like</p>
-        <h2>Clients don't hire us for posts. They stay for the pipeline.</h2>
-      </div>
-    </div>
-    <div class="marquee reveal">
-      <div class="marquee-track slow">
-        <div class="testimonial-card">
-          <p class="testimonial-quote">They didn't just hand us content, they handed us a system we could see working in real time.</p>
-          <div class="testimonial-author"><img src="assets/logos/bellagio.png" alt="" /><span>Bellagio Casino Colombo</span></div>
-        </div>
-        <div class="testimonial-card">
-          <p class="testimonial-quote">Every launch now has a content plan behind it instead of a scramble the week before.</p>
-          <div class="testimonial-author"><img src="assets/logos/milton-motors.png" alt="" /><span>Milton Motors</span></div>
-        </div>
-        <div class="testimonial-card">
-          <p class="testimonial-quote">The content finally matched how the experience actually feels in person.</p>
-          <div class="testimonial-author"><img src="assets/logos/romance-valley.png" alt="" /><span>Romance Valley</span></div>
-        </div>
-        <div class="testimonial-card">
-          <p class="testimonial-quote">They didn't just hand us content, they handed us a system we could see working in real time.</p>
-          <div class="testimonial-author"><img src="assets/logos/bellagio.png" alt="" /><span>Bellagio Casino Colombo</span></div>
-        </div>
-        <div class="testimonial-card">
-          <p class="testimonial-quote">Every launch now has a content plan behind it instead of a scramble the week before.</p>
-          <div class="testimonial-author"><img src="assets/logos/milton-motors.png" alt="" /><span>Milton Motors</span></div>
-        </div>
-        <div class="testimonial-card">
-          <p class="testimonial-quote">The content finally matched how the experience actually feels in person.</p>
-          <div class="testimonial-author"><img src="assets/logos/romance-valley.png" alt="" /><span>Romance Valley</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- INSIGHTS -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-head left reveal">
-        <p class="eyebrow">Insights</p>
-        <h2>Behind the systems</h2>
-        <p>Thoughts on content, growth, and what actually makes marketing spend come back.</p>
-      </div>
-      <div class="insights-grid">
-        <div class="insight-featured reveal">
-          <div class="insight-visual">
-            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="M9 13h6M9 17h4"/></svg>
-          </div>
-          <span class="insight-badge">Strategy</span>
-          <h3>How We Built a Content System That Guarantees Results</h3>
-          <p>The thinking behind the 1,000,000-view guarantee, and why we test every system on our own brand first.</p>
-          <span class="insight-meta">By Boomerang Teams</span>
-        </div>
-        <div class="insights-list reveal">
-          <div class="insight-row">
-            <div class="insight-row-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-            <div class="insight-row-text">
-              <span class="insight-cat">Personal Branding</span>
-              <h4>Why Trust Comes Before Traffic</h4>
-            </div>
-          </div>
-          <div class="insight-row">
-            <div class="insight-row-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
-            <div class="insight-row-text">
-              <span class="insight-cat">Content</span>
-              <h4>What Makes a Video Actually Get Shared</h4>
-            </div>
-          </div>
-          <div class="insight-row">
-            <div class="insight-row-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-6"/></svg></div>
-            <div class="insight-row-text">
-              <span class="insight-cat">Growth</span>
-              <h4>Organic vs Paid: Why We Run Both Together</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="section">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow center">Before you book</p>
-        <h2>Questions we get on every first call.</h2>
-      </div>
-      <div class="faq-list reveal">
-        <div class="faq-item">
-          <button class="faq-question">How fast can we start? <span class="faq-icon">+</span></button>
-          <div class="faq-answer"><p>Most systems kick off within a week of the call — we spend the first few days on strategy and story before anything gets filmed.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">What's included in the 1,000,000-view guarantee? <span class="faq-icon">+</span></button>
-          <div class="faq-answer"><p>It's tied to the content system we build and run for you over 90 days. If the system hasn't hit the number by then, we keep working at no extra cost until it does.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">Do you only work with clients in Sri Lanka? <span class="faq-icon">+</span></button>
-          <div class="faq-answer"><p>We're based in Colombo and most of our case studies are Sri Lankan brands, but the systems we build travel — get in touch and we'll tell you honestly if it's a fit.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">Do you handle paid ads too, or just organic content? <span class="faq-icon">+</span></button>
-          <div class="faq-answer"><p>Both. Business Branding systems combine organic content with paid amplification so the content that's already working gets put in front of more of the right people.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">What happens after I book a call? <span class="faq-icon">+</span></button>
-          <div class="faq-answer"><p>We spend 20 minutes understanding your brand and goals, then tell you honestly whether a Personal or Business Branding system is the right fit — and what it would take to run it.</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FINAL CTA -->
-  <section class="cta-section" id="contact">
-    <div class="container">
-      <p class="eyebrow center">Ready when you are</p>
-      <h2 class="cta-word">Your content is one system away from actually coming back.</h2>
-      <p class="cta-sub">Book a 20-minute call. We'll tell you exactly what it'll take to get your content coming back.</p>
-      <form class="contact-form" id="contact-form">
-        <input type="text" id="name" name="name" placeholder="Your name" required />
-        <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email" />
-        <textarea id="message" name="message" rows="4" placeholder="Tell us about your brand"></textarea>
-        <button type="submit" class="btn btn-primary">Book a Call</button>
-      </form>
-      <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
-      <p class="contact-alt">Or email us directly at <a href="mailto:hello@boomerangteams.com">hello@boomerangteams.com</a></p>
-    </div>
-  </section>
-
+<!-- À LA CARTE PRODUCTION STRIP -->
+<div data-rv class="mt-space-lg bg-surface-container-lowest border border-outline-variant/30 p-space-md lg:p-space-lg rounded-xl shadow-xs ">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md pb-space-sm border-b border-surface-container-high/60">
+<div>
+<h4 class="font-headline-sm text-headline-sm uppercase text-on-surface">À La Carte Deployments</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Need standalone tactical collateral? Commission on-demand assets.</p>
+</div>
+<span class="font-label-caps-sm text-label-caps-sm text-primary font-bold uppercase tracking-wider">Fixed Unit Pricing</span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter pt-space-md">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-tertiary">Designed Graphic Post</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">LKR 4,500</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-tertiary">Edited Image / Retouch</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">LKR 2,500</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-tertiary">Standalone UGC Video</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">LKR 13,500</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-tertiary">Commercial Photoshoot</span>
+<span class="font-headline-sm text-headline-sm text-primary-container font-bold">Priced by Scope</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 7. FINAL CTA & CONTACT                                                    -->
+<!-- ========================================================================= -->
+<section class="relative z-10 w-full py-space-xl bg-surface-container-lowest border-t border-outline-variant/30" id="contact">
+<div class="max-w-[1360px] mx-auto px-margin md:px-margin-md lg:px-margin-lg">
+<div data-rv class="bg-gradient-to-br from-surface-container-lowest via-surface-container-low to-secondary-container/20 border border-outline-variant/30 rounded-2xl p-space-lg lg:p-space-xl shadow-sm relative overflow-hidden ">
+<div class="absolute -right-24 -bottom-24 w-96 h-96 rounded-full bg-primary-container/10 blur-3xl pointer-events-none"></div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-center relative z-10">
+<div class="lg:col-span-8 flex flex-col gap-space-md">
+<div class="inline-flex items-center gap-space-xs bg-secondary-container/40 text-on-secondary-container border border-primary-container/20 px-space-md py-1 rounded-full w-fit">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="font-label-caps-sm text-label-caps-sm uppercase tracking-widest font-semibold">Inbound Growth Pipeline</span>
+</div>
+<h2 id="cta-title" class="font-display-xl text-[44px] sm:text-[64px] lg:text-display-xl uppercase text-on-surface tracking-tight leading-[0.95]">
+              Your brand is <br/>
+<span class="text-primary-container hl-sweep">one scroll away</span> <br/>
+              from blowing up.
+            </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+              We've done it for a premier casino, automotive groups, boutique hotels, streetwear drops, and emerging entrepreneurs across Sri Lanka. No 60-slide boring pitch decks. Just ruthless craft, continuous distribution, and measurable compound growth.
+            </p>
+<div class="flex flex-wrap items-center gap-space-md pt-space-xs">
+<a class="inline-flex items-center gap-space-xs bg-primary-container hover:bg-primary text-on-primary font-label-text text-label-text px-space-xl py-space-sm rounded-full shadow-md hover:shadow-lg transition-all group" href="https://wa.me/94756948357" rel="noopener noreferrer" target="_blank">
+<span class="text-base tracking-wide">Let's talk directly</span>
+<span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">arrow_outward</span>
+</a>
+<a class="inline-flex items-center gap-space-xs text-primary font-label-text text-label-text hover:underline" href="mailto:boomerangteamsofficial@gmail.com">
+<span class="material-symbols-outlined text-lg">mail</span>
+<span>boomerangteamsofficial@gmail.com</span>
+</a>
+</div>
+</div>
+<!-- Direct Executive Contact Card -->
+<div class="lg:col-span-4 bg-surface-container-lowest/90 border border-outline-variant/30 backdrop-blur-md p-space-lg rounded-xl shadow-xs flex flex-col gap-space-md">
+<span class="font-label-caps-lg text-label-caps-lg uppercase text-on-surface tracking-wider font-bold">Fast Intake Desk</span>
+<div class="flex flex-col gap-space-sm text-on-surface-variant font-body-md text-body-md">
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-primary text-xl mt-0.5">call</span>
+<div>
+<p class="font-label-caps-sm text-label-caps-sm text-tertiary uppercase">Call / WhatsApp</p>
+<p class="font-headline-sm text-headline-sm text-on-surface tracking-normal">+94 75 694 8357</p>
+</div>
+</div>
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-primary text-xl mt-0.5">location_on</span>
+<div>
+<p class="font-label-caps-sm text-label-caps-sm text-tertiary uppercase">Production Studio</p>
+<p class="font-body-md text-body-md text-on-surface">Colombo 03, Western Province, Sri Lanka</p>
+</div>
+</div>
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-primary text-xl mt-0.5">schedule</span>
+<div>
+<p class="font-label-caps-sm text-label-caps-sm text-tertiary uppercase">Response Velocity</p>
+<p class="font-body-md text-body-md text-on-surface">Under 2 hours for executive inquiries</p>
+</div>
+</div>
+</div>
+<div class="pt-space-xs">
+<div class="p-space-sm bg-surface-container-low rounded-lg flex items-center justify-between text-[13px] text-tertiary">
+<span>Accepting new client retainers for Q2</span>
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
 </main>
-
-<footer class="footer">
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="footer-logo"><img src="logo.png" alt="Boomerang Teams" /></div>
-        <p>A Colombo-based content and growth agency. Throw it right, and it always comes back.</p>
-        <div class="footer-social">
-          <a href="#">Instagram</a>
-          <a href="#">TikTok</a>
-          <a href="#">YouTube</a>
-        </div>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Pages</h4>
-          <ul>
-            <li><a href="#top">Home</a></li>
-            <li><a href="#work">Work</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Information</h4>
-          <ul>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; <span id="year"></span> Boomerang Teams. All rights reserved.</p>
-      <p>Colombo, Sri Lanka</p>
-    </div>
-  </div>
+<!-- FOOTER WITH OFFICIAL BRAND LOGO -->
+<footer class="w-full bg-surface-container-low border-t border-outline-variant/30">
+<div class="max-w-[1360px] mx-auto px-margin md:px-margin-md lg:px-margin-lg pt-space-xl pb-space-lg">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter-lg pb-space-xl">
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<!-- Footer Brand Container using user's official logo -->
+<a class="flex items-center gap-2 shrink-0 group focus:outline-none" href="#">
+<img alt="Boomerang Teams" class="h-10 md:h-11 w-auto object-contain transition-transform group-hover:scale-[1.03]" src="assets/logo-light.png" width="720" height="293"/>
+</a>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm">
+          Creative content and authority personal-branding agency engineered for high-growth leaders, founders, and modern teams across the globe.
+        </p>
+<div class="flex items-center gap-space-xs font-label-caps-sm text-label-caps-sm text-secondary uppercase tracking-widest pt-space-xs font-semibold">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span>Colombo, Sri Lanka • Global Operations</span>
+</div>
+</div>
+<div class="lg:col-span-3 flex flex-col gap-space-sm">
+<span class="font-label-caps-lg text-label-caps-lg uppercase text-on-surface tracking-wider font-bold">Explore</span>
+<div class="flex flex-col gap-space-xs">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="work" href="#work">Selected Work</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="services" href="#services">Creative Services</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="results" href="#results">Client Results</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="process" href="#process">Our Process</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="packages" href="#packages">Packages &amp; Retainers</a>
+</div>
+</div>
+<div class="lg:col-span-4 flex flex-col gap-space-sm">
+<span class="font-label-caps-lg text-label-caps-lg uppercase text-on-surface tracking-wider font-bold">Direct Contact</span>
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-body-md text-body-md">
+<span class="material-symbols-outlined text-lg text-primary">call</span>
+<span>+94 75 694 8357</span>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-body-md text-body-md">
+<span class="material-symbols-outlined text-lg text-primary">mail</span>
+<span>boomerangteamsofficial@gmail.com</span>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-body-md text-body-md">
+<span class="material-symbols-outlined text-lg text-primary">location_on</span>
+<span>Colombo 03, Western Province, Sri Lanka</span>
+</div>
+</div>
+<div class="pt-space-sm">
+<a class="inline-flex items-center gap-space-xs font-label-text text-label-text text-primary hover:text-on-primary-container" data-path="contact" href="#contact">
+<span class="border-b border-primary">Schedule an executive intro</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<div class="pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-sm border-t border-outline-variant/30">
+<p class="font-label-caps-sm text-label-caps-sm text-tertiary uppercase">© 2025 Boomerang Teams (Pvt) Ltd. All rights reserved.</p>
+<div class="flex items-center gap-space-md font-label-caps-sm text-label-caps-sm text-tertiary uppercase">
+<a class="hover:text-primary transition-colors" data-path="privacy-policy" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" data-path="terms-of-service" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
 </footer>
-
+<!-- WEB COMPONENT AND CLIENT INTERACTIONS SCRIPT -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
 <script src="script.js"></script>
-</body>
-</html>
+</body></html>

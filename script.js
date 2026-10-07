@@ -531,7 +531,7 @@
 
     var header = $('#site-header'), bar = $('#scroll-progress');
     var navLinks = $$('header nav a[data-path]');
-    var secs = ['work', 'services', 'results', 'process', 'packages', 'contact'].map(function (id) { return $('#' + id); });
+    var secs = ['work', 'services', 'results', 'reviews', 'process', 'packages', 'contact'].map(function (id) { return $('#' + id); });
     var order = secs.filter(Boolean).sort(function (a, b) { return a.compareDocumentPosition(b) & 4 ? -1 : 1; });
     var lastY = -1, lastRet = -1, idx = 0, curNav = '';
 

@@ -215,3 +215,14 @@ span.logo-chip{max-width:none;height:auto}
    square artwork with their own background, unlike the transparent wordmark PNGs
    above — frame them instead of letting the opaque square float unbordered. */
 .logo-chip.logo-badge{border-radius:.375rem;box-shadow:0 0 0 1px rgba(10,15,18,.08)}
+
+/* ---------- floating promo bar ---------- */
+#promo-bar { animation: promo-in .5s cubic-bezier(.2,.8,.2,1) .6s both; }
+.promo-bar-panel { transition: opacity .25s ease, transform .25s ease; }
+.promo-bar-hide .promo-bar-panel { opacity: 0; transform: translateY(10px); }
+@keyframes promo-in { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) {
+  #promo-bar { animation: none; }
+  .promo-bar-panel { transition: opacity .2s ease; }
+  .promo-bar-hide .promo-bar-panel { transform: none; }
+}

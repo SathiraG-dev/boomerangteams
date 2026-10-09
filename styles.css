@@ -104,10 +104,10 @@
 /* ---------- hero: grid + gradient atmosphere ---------- */
 #hero-atmosphere {
   background-image:
-    radial-gradient(58% 50% at 12% -8%, rgba(40,171,201,.20), transparent 70%),
-    radial-gradient(50% 42% at 102% 6%, rgba(14,95,115,.15), transparent 70%),
-    linear-gradient(rgba(10,15,18,.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(10,15,18,.055) 1px, transparent 1px);
+    radial-gradient(58% 50% at 12% -8%, rgba(40,171,201,.32), transparent 70%),
+    radial-gradient(50% 42% at 102% 6%, rgba(14,95,115,.26), transparent 70%),
+    linear-gradient(rgba(10,15,18,.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10,15,18,.09) 1px, transparent 1px);
   background-size: 100% 100%, 100% 100%, 42px 42px, 42px 42px;
   background-position: 0 0, 0 0, -1px -1px, -1px -1px;
   -webkit-mask-image: linear-gradient(to bottom, #000 50%, transparent 92%);

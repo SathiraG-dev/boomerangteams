@@ -66,7 +66,7 @@
 <img alt="Boomerang Teams" class="h-10 md:h-11 w-auto object-contain transition-transform group-hover:scale-[1.03]" src="../assets/logo-light.png" width="720" height="293"/>
 </a>
 <nav class="hidden lg:flex items-center gap-space-lg">
-<a class="font-label-text text-label-text text-on-surface-variant hover:text-primary transition-colors" href="../index.html#work">Work</a>
+<a class="font-label-text text-label-text text-on-surface-variant hover:text-primary transition-colors" href="../index.html#case-studies">Work</a>
 <a class="font-label-text text-label-text text-on-surface-variant hover:text-primary transition-colors" href="../index.html#services">Services</a>
 <a class="font-label-text text-label-text text-on-surface-variant hover:text-primary transition-colors" href="../index.html#results">Results</a>
 <a class="font-label-text text-label-text text-on-surface-variant hover:text-primary transition-colors" href="../index.html#process">Process</a>
@@ -78,14 +78,65 @@
 <span class="tracking-wide">Let's talk</span>
 <span class="material-symbols-outlined text-base transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">arrow_outward</span>
 </a>
+<button aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu" id="mobile-menu-toggle" type="button" class="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-outline-variant/40 text-on-surface hover:bg-surface-container-low transition-colors shrink-0">
+<span class="material-symbols-outlined text-2xl" id="mobile-menu-icon" aria-hidden="true">menu</span>
+</button>
 </div>
+</div>
+<div class="hidden lg:hidden fixed inset-x-0 top-20 bottom-0 z-40 bg-surface-container-lowest/98 backdrop-blur-xl overflow-y-auto" id="mobile-menu">
+<nav class="flex flex-col px-margin py-space-lg gap-space-xs">
+<a class="font-headline-sm text-headline-sm uppercase text-on-surface-variant hover:text-primary transition-colors py-space-sm border-b border-outline-variant/20" href="../index.html#case-studies">Work</a>
+<a class="font-headline-sm text-headline-sm uppercase text-on-surface-variant hover:text-primary transition-colors py-space-sm border-b border-outline-variant/20" href="../index.html#services">Services</a>
+<a class="font-headline-sm text-headline-sm uppercase text-on-surface-variant hover:text-primary transition-colors py-space-sm border-b border-outline-variant/20" href="../index.html#results">Results</a>
+<a class="font-headline-sm text-headline-sm uppercase text-on-surface-variant hover:text-primary transition-colors py-space-sm border-b border-outline-variant/20" href="../index.html#process">Process</a>
+<a class="font-headline-sm text-headline-sm uppercase text-on-surface-variant hover:text-primary transition-colors py-space-sm border-b border-outline-variant/20" href="../index.html#packages">Packages</a>
+<a class="font-headline-sm text-headline-sm uppercase text-on-surface-variant hover:text-primary transition-colors py-space-sm" href="../index.html#contact">Contact</a>
+<a class="mt-space-md inline-flex items-center justify-center gap-space-xs bg-primary-container hover:bg-primary text-on-primary font-label-text text-label-text px-space-lg py-space-sm rounded-full shadow-sm transition-all w-fit" href="https://wa.me/94756948357" rel="noopener noreferrer" target="_blank">
+<span class="tracking-wide">Let's talk</span>
+<span class="material-symbols-outlined text-base" aria-hidden="true">arrow_outward</span>
+</a>
+</nav>
 </div>
 </header>
+<script>
+(function () {
+  var btn = document.getElementById('mobile-menu-toggle');
+  var menu = document.getElementById('mobile-menu');
+  var icon = document.getElementById('mobile-menu-icon');
+  if (!btn || !menu) return;
+  function closeMenu() {
+    menu.classList.add('hidden');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-label', 'Open menu');
+    if (icon) icon.textContent = 'menu';
+    document.body.classList.remove('overflow-hidden');
+  }
+  function openMenu() {
+    menu.classList.remove('hidden');
+    btn.setAttribute('aria-expanded', 'true');
+    btn.setAttribute('aria-label', 'Close menu');
+    if (icon) icon.textContent = 'close';
+    document.body.classList.add('overflow-hidden');
+  }
+  btn.addEventListener('click', function () {
+    if (menu.classList.contains('hidden')) openMenu(); else closeMenu();
+  });
+  menu.addEventListener('click', function (e) {
+    if (e.target.closest('a')) closeMenu();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !menu.classList.contains('hidden')) closeMenu();
+  });
+  window.addEventListener('resize', function () {
+    if (window.innerWidth >= 1024) closeMenu();
+  });
+})();
+</script>
 <main class="w-full bg-surface">
 
 <section class="relative w-full py-space-xl border-b border-outline-variant/30 bg-surface-container-low/40">
 <div class="max-w-[1100px] mx-auto px-margin md:px-margin-md lg:px-margin-lg">
-<a class="inline-flex items-center gap-space-xs text-primary font-label-text text-label-text hover:underline mb-space-md" href="../index.html#work">
+<a class="inline-flex items-center gap-space-xs text-primary font-label-text text-label-text hover:underline mb-space-md" href="../index.html#case-studies">
 <span class="material-symbols-outlined text-base">arrow_back</span>
 <span>All case studies</span>
 </a>
@@ -154,7 +205,7 @@
 <div class="lg:col-span-3 flex flex-col gap-space-sm">
 <span class="font-label-caps-lg text-label-caps-lg uppercase text-on-surface tracking-wider font-bold">Explore</span>
 <div class="flex flex-col gap-space-xs">
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="../index.html#work">Selected Work</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="../index.html#case-studies">Selected Work</a>
 <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="../index.html#services">Creative Services</a>
 <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="../index.html#results">Client Results</a>
 <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="../index.html#process">Our Process</a>
@@ -177,7 +228,7 @@
 </div>
 <div class="pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-sm border-t border-outline-variant/30">
 <p class="font-label-caps-sm text-label-caps-sm text-tertiary uppercase">© 2025 Boomerang Teams (Pvt) Ltd. All rights reserved.</p>
-<a class="font-label-caps-sm text-label-caps-sm text-tertiary uppercase hover:text-primary transition-colors" href="../index.html#work">&larr; Back to all work</a>
+<a class="font-label-caps-sm text-label-caps-sm text-tertiary uppercase hover:text-primary transition-colors" href="../index.html#case-studies">&larr; Back to all work</a>
 </div>
 </div>
 </footer>

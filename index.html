@@ -13,53 +13,53 @@
     theme: {
       extend: {
         colors: {
-          "on-tertiary-container": "#28373a",
+          "on-tertiary-container": "#d5e5e9",
           "on-secondary-fixed": "#001f28",
-          "surface-bright": "#f6fafe",
-          "on-secondary": "#ffffff",
-          "surface-variant": "#dfe3e7",
+          "surface-bright": "#343b3e",
+          "on-secondary": "#00272e",
+          "surface-variant": "#3d494c",
           "tertiary-fixed-dim": "#b9c9cd",
-          "on-tertiary": "#ffffff",
+          "on-tertiary": "#0e1e21",
           "primary-container": "#28abc9",
-          "inverse-on-surface": "#edf1f5",
-          "background": "#f6fafe",
-          "surface-container-lowest": "#ffffff",
-          "error-container": "#ffdad6",
-          "surface-container-low": "#f0f4f8",
+          "inverse-on-surface": "#0d1316",
+          "background": "#0d1316",
+          "surface-container-lowest": "#07090b",
+          "error-container": "#93000a",
+          "surface-container-low": "#13191c",
           "on-primary-fixed-variant": "#004e5e",
-          "tertiary-container": "#90a0a4",
+          "tertiary-container": "#3a494d",
           "secondary-fixed": "#b4ebff",
-          "outline-variant": "#bcc8cd",
-          "outline": "#6d797d",
+          "outline-variant": "#3d494c",
+          "outline": "#869195",
           "on-primary-fixed": "#001f27",
           "on-tertiary-fixed": "#0e1e21",
-          "surface": "#f4f9fb",
-          "tertiary": "#516165",
-          "surface-container-high": "#e4e9ed",
+          "surface": "#0d1316",
+          "tertiary": "#b9c9cd",
+          "surface-container-high": "#1f2629",
           "on-tertiary-fixed-variant": "#3a494d",
-          "on-error-container": "#93000a",
-          "surface-container-highest": "#dfe3e7",
-          "on-secondary-container": "#1f697d",
-          "on-error": "#ffffff",
-          "surface-dim": "#d6dadf",
+          "on-error-container": "#ffdad6",
+          "surface-container-highest": "#2a3134",
+          "on-secondary-container": "#a4e7fe",
+          "on-error": "#690005",
+          "surface-dim": "#07090b",
           "on-secondary-fixed-variant": "#004e5f",
           "primary-fixed-dim": "#61d5f4",
           "secondary-fixed-dim": "#8ed0e7",
-          "primary": "#00687c",
+          "primary": "#61d5f4",
           "on-primary": "#ffffff",
-          "surface-tint": "#00687c",
-          "error": "#ba1a1a",
-          "secondary": "#0e5f73",
-          "secondary-container": "#a4e7fe",
+          "surface-tint": "#61d5f4",
+          "error": "#ffb4ab",
+          "secondary": "#8ed0e7",
+          "secondary-container": "#0e5f73",
           "tertiary-fixed": "#d5e5e9",
           "primary-fixed": "#b0ecff",
-          "on-surface": "#0a0f12",
-          "on-primary-container": "#003a47",
-          "on-surface-variant": "#3d494c",
-          "surface-container": "#eaeef3",
-          "on-background": "#0a0f12",
-          "inverse-primary": "#61d5f4",
-          "inverse-surface": "#2c3134"
+          "on-surface": "#e7edf0",
+          "on-primary-container": "#e7f9ff",
+          "on-surface-variant": "#b7c2c5",
+          "surface-container": "#171e21",
+          "on-background": "#e7edf0",
+          "inverse-primary": "#00687c",
+          "inverse-surface": "#e7edf0"
         },
         borderRadius: {
           "DEFAULT": "0.25rem",
@@ -120,7 +120,7 @@
 <div class="h-20 max-w-[1360px] mx-auto px-margin md:px-margin-md lg:px-margin-lg flex items-center justify-between gap-space-md">
 <!-- Brand Logo Container styled cleanly with contrast -->
 <a class="flex items-center gap-2 shrink-0 group focus:outline-none" href="#">
-<img alt="Boomerang Teams" class="h-10 md:h-11 w-auto object-contain transition-transform group-hover:scale-[1.03]" src="assets/logo-light.png" width="720" height="293"/>
+<img alt="Boomerang Teams" class="h-10 md:h-11 w-auto object-contain transition-transform group-hover:scale-[1.03]" src="logo.png" width="2172" height="724"/>
 </a>
 <nav class="hidden lg:flex items-center gap-space-lg" data-active-classes="text-primary font-bold">
 <a class="font-label-text text-label-text text-on-surface-variant hover:text-primary transition-colors" data-path="services" href="#services">Services</a>
@@ -319,9 +319,12 @@
 </div>
 </div>
 </div>
-<!-- CLIENT LOGO MARQUEE -->
+<!-- CLIENT LOGO MARQUEE: pinned to a fixed light strip regardless of the site theme —
+     most client marks are dark ink designed for a light background, with no dark-mode
+     variant supplied. A light "trust bar" band is a standard, intentional pattern on
+     dark-themed sites for exactly this reason. -->
 <p class="w-full text-center font-label-caps-sm text-label-caps-sm uppercase tracking-[0.2em] text-tertiary font-semibold mt-space-xl mb-space-sm">Who Trusted Us</p>
-<div class="w-full overflow-hidden py-space-sm bg-surface-container-lowest border-y border-outline-variant/30 shadow-xs">
+<div class="w-full overflow-hidden py-space-sm bg-[#f4f9fb] border-y border-[#dfe3e7] shadow-xs">
 <div class="flex items-center gap-space-xl whitespace-nowrap animate-[marquee_28s_linear_infinite] w-max select-none">
 <img class="logo-chip logo-tall" src="assets/logos/light/bellagio.png" alt="Bellagio Sri Lanka" width="420" height="324" loading="eager" draggable="false"/>
 <img class="logo-chip logo-tall" src="assets/logos/light/romance-valley.png" alt="Romance Valley" width="420" height="319" loading="eager" draggable="false"/>
@@ -639,7 +642,7 @@
 <!-- Review 1: Bellagio Casino -->
 <div data-rv class="review-row grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-center py-space-xl border-t border-outline-variant/30 first:border-t-0 first:pt-0 ">
 <div class="lg:col-span-5">
-<div class="interactive-card relative aspect-[4/5] rounded-xl overflow-hidden bg-surface-container-lowest border border-outline-variant/40 shadow-sm flex items-center justify-center p-space-xl">
+<div class="interactive-card relative aspect-[4/5] rounded-xl overflow-hidden bg-[#f4f9fb] border border-[#dfe3e7] shadow-sm flex items-center justify-center p-space-xl">
 <img alt="Bellagio Colombo" class="max-w-[72%] max-h-[48%] object-contain" src="assets/logos/light/bellagio.png"/>
 </div>
 </div>
@@ -702,7 +705,7 @@
 <div class="flex flex-wrap items-center gap-space-sm pt-space-xs">
 <span class="metric-chip"><strong class="text-primary font-bold">100 → 100K+</strong>&nbsp;views</span>
 </div>
-<a class="video-card interactive-card group relative flex items-center gap-space-sm rounded-xl bg-on-surface text-white p-space-xs pr-space-md overflow-hidden w-fit mt-space-xs" href="https://www.tiktok.com/@autoshop.expert/video/7693154361937104135" rel="noopener noreferrer" target="_blank">
+<a class="video-card interactive-card group relative flex items-center gap-space-sm rounded-xl bg-[#0a0f12] text-white p-space-xs pr-space-md overflow-hidden w-fit mt-space-xs" href="https://www.tiktok.com/@autoshop.expert/video/7693154361937104135" rel="noopener noreferrer" target="_blank">
 <span class="video-play-btn relative flex items-center justify-center w-12 h-12 rounded-full bg-primary-container text-on-primary shrink-0">
 <span class="material-symbols-outlined text-2xl">play_arrow</span>
 </span>
@@ -808,7 +811,7 @@
 <!-- Review 8: Trek Pack -->
 <div data-rv class="review-row grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-center py-space-xl border-t border-outline-variant/30 ">
 <div class="lg:col-span-5 lg:order-2">
-<div class="interactive-card relative aspect-[4/5] rounded-xl overflow-hidden bg-surface-container-lowest border border-outline-variant/40 shadow-sm flex items-center justify-center p-space-xl">
+<div class="interactive-card relative aspect-[4/5] rounded-xl overflow-hidden bg-[#f4f9fb] border border-[#dfe3e7] shadow-sm flex items-center justify-center p-space-xl">
 <img alt="Trek Pack" class="max-w-[72%] max-h-[48%] object-contain" src="assets/logos/light/trekpack.png"/>
 </div>
 </div>
@@ -864,7 +867,7 @@
         </p>
 </div>
 <div id="process-grid" class="grid grid-cols-1 md:grid-cols-3 gap-gutter-lg relative">
-<div class="hidden md:block absolute left-[16.6%] right-[16.6%] -top-7 h-[3px]" aria-hidden="true"><div class="absolute inset-0 rounded-full bg-[#E4F5F9] overflow-hidden"><div id="process-line" class="h-full origin-left bg-primary-container" style="transform:scaleX(0)"></div></div><span class="proc-dot absolute -top-[5px] w-[13px] h-[13px] rounded-full border-2 border-primary-container bg-white" style="left:0"></span><span class="proc-dot absolute -top-[5px] w-[13px] h-[13px] rounded-full border-2 border-primary-container bg-white" style="left:calc(50% - 6.5px)"></span><span class="proc-dot absolute -top-[5px] w-[13px] h-[13px] rounded-full border-2 border-primary-container bg-white" style="left:calc(100% - 13px)"></span></div>
+<div class="hidden md:block absolute left-[16.6%] right-[16.6%] -top-7 h-[3px]" aria-hidden="true"><div class="absolute inset-0 rounded-full bg-[#1f2629] overflow-hidden"><div id="process-line" class="h-full origin-left bg-primary-container" style="transform:scaleX(0)"></div></div><span class="proc-dot absolute -top-[5px] w-[13px] h-[13px] rounded-full border-2 border-primary-container bg-white" style="left:0"></span><span class="proc-dot absolute -top-[5px] w-[13px] h-[13px] rounded-full border-2 border-primary-container bg-white" style="left:calc(50% - 6.5px)"></span><span class="proc-dot absolute -top-[5px] w-[13px] h-[13px] rounded-full border-2 border-primary-container bg-white" style="left:calc(100% - 13px)"></span></div>
 
 <!-- Step 01 -->
 <div data-rv class="interactive-card bg-surface-container-lowest p-space-lg rounded-xl border border-outline-variant/30 shadow-sm flex flex-col justify-between group ">
@@ -1118,7 +1121,7 @@
 <div class="lg:col-span-5 flex flex-col gap-space-md">
 <!-- Footer Brand Container using user's official logo -->
 <a class="flex items-center gap-2 shrink-0 group focus:outline-none" href="#">
-<img alt="Boomerang Teams" class="h-10 md:h-11 w-auto object-contain transition-transform group-hover:scale-[1.03]" src="assets/logo-light.png" width="720" height="293"/>
+<img alt="Boomerang Teams" class="h-10 md:h-11 w-auto object-contain transition-transform group-hover:scale-[1.03]" src="logo.png" width="2172" height="724"/>
 </a>
 <p class="font-body-md text-body-md text-on-surface-variant max-w-sm">
           Creative content and authority personal-branding agency engineered for high-growth leaders, founders, and modern teams across the globe.
@@ -1173,7 +1176,7 @@
 </footer>
 <!-- Floating promo bar: dismissible, reappears after 14 days. Vanilla JS, independent of GSAP. -->
 <div aria-live="polite" class="fixed inset-x-0 bottom-4 sm:bottom-6 z-30 px-margin flex justify-center pointer-events-none" id="promo-bar">
-<div class="promo-bar-panel pointer-events-auto flex items-center gap-space-sm bg-on-surface text-white rounded-2xl sm:rounded-full shadow-[0_20px_45px_-12px_rgba(10,15,18,.55)] px-space-md py-space-sm w-full sm:w-auto sm:max-w-xl">
+<div class="promo-bar-panel pointer-events-auto flex items-center gap-space-sm bg-[#0a0f12] text-white rounded-2xl sm:rounded-full shadow-[0_20px_45px_-12px_rgba(10,15,18,.55)] px-space-md py-space-sm w-full sm:w-auto sm:max-w-xl">
 <span aria-hidden="true" class="hidden sm:flex w-9 h-9 rounded-full bg-primary-container text-on-primary items-center justify-center shrink-0">
 <span class="material-symbols-outlined text-lg">auto_awesome</span>
 </span>

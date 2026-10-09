@@ -10,22 +10,22 @@
     theme: {
       extend: {
         colors: {
-          "on-tertiary-container": "#28373a", "on-secondary-fixed": "#001f28", "surface-bright": "#f6fafe",
-          "on-secondary": "#ffffff", "surface-variant": "#dfe3e7", "tertiary-fixed-dim": "#b9c9cd",
-          "on-tertiary": "#ffffff", "primary-container": "#28abc9", "inverse-on-surface": "#edf1f5",
-          "background": "#f6fafe", "surface-container-lowest": "#ffffff", "error-container": "#ffdad6",
-          "surface-container-low": "#f0f4f8", "on-primary-fixed-variant": "#004e5e", "tertiary-container": "#90a0a4",
-          "secondary-fixed": "#b4ebff", "outline-variant": "#bcc8cd", "outline": "#6d797d",
-          "on-primary-fixed": "#001f27", "on-tertiary-fixed": "#0e1e21", "surface": "#f4f9fb",
-          "tertiary": "#516165", "surface-container-high": "#e4e9ed", "on-tertiary-fixed-variant": "#3a494d",
-          "on-error-container": "#93000a", "surface-container-highest": "#dfe3e7", "on-secondary-container": "#1f697d",
-          "on-error": "#ffffff", "surface-dim": "#d6dadf", "on-secondary-fixed-variant": "#004e5f",
-          "primary-fixed-dim": "#61d5f4", "secondary-fixed-dim": "#8ed0e7", "primary": "#00687c",
-          "on-primary": "#ffffff", "surface-tint": "#00687c", "error": "#ba1a1a", "secondary": "#0e5f73",
-          "secondary-container": "#a4e7fe", "tertiary-fixed": "#d5e5e9", "primary-fixed": "#b0ecff",
-          "on-surface": "#0a0f12", "on-primary-container": "#003a47", "on-surface-variant": "#3d494c",
-          "surface-container": "#eaeef3", "on-background": "#0a0f12", "inverse-primary": "#61d5f4",
-          "inverse-surface": "#2c3134"
+          "on-tertiary-container": "#d5e5e9", "on-secondary-fixed": "#001f28", "surface-bright": "#343b3e",
+          "on-secondary": "#00272e", "surface-variant": "#3d494c", "tertiary-fixed-dim": "#b9c9cd",
+          "on-tertiary": "#0e1e21", "primary-container": "#28abc9", "inverse-on-surface": "#0d1316",
+          "background": "#0d1316", "surface-container-lowest": "#07090b", "error-container": "#93000a",
+          "surface-container-low": "#13191c", "on-primary-fixed-variant": "#004e5e", "tertiary-container": "#3a494d",
+          "secondary-fixed": "#b4ebff", "outline-variant": "#3d494c", "outline": "#869195",
+          "on-primary-fixed": "#001f27", "on-tertiary-fixed": "#0e1e21", "surface": "#0d1316",
+          "tertiary": "#b9c9cd", "surface-container-high": "#1f2629", "on-tertiary-fixed-variant": "#3a494d",
+          "on-error-container": "#ffdad6", "surface-container-highest": "#2a3134", "on-secondary-container": "#a4e7fe",
+          "on-error": "#690005", "surface-dim": "#07090b", "on-secondary-fixed-variant": "#004e5f",
+          "primary-fixed-dim": "#61d5f4", "secondary-fixed-dim": "#8ed0e7", "primary": "#61d5f4",
+          "on-primary": "#ffffff", "surface-tint": "#61d5f4", "error": "#ffb4ab", "secondary": "#8ed0e7",
+          "secondary-container": "#0e5f73", "tertiary-fixed": "#d5e5e9", "primary-fixed": "#b0ecff",
+          "on-surface": "#e7edf0", "on-primary-container": "#e7f9ff", "on-surface-variant": "#b7c2c5",
+          "surface-container": "#171e21", "on-background": "#e7edf0", "inverse-primary": "#00687c",
+          "inverse-surface": "#e7edf0"
         },
         borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
         spacing: {
@@ -63,7 +63,7 @@
 <header id="site-header" class="sticky top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-xl border-b border-surface-container-high/60 shadow-[0_1px_10px_rgba(0,0,0,0.03)]">
 <div class="h-20 max-w-[1360px] mx-auto px-margin md:px-margin-md lg:px-margin-lg flex items-center justify-between gap-space-md">
 <a class="flex items-center gap-2 shrink-0 group focus:outline-none" href="../index.html">
-<img alt="Boomerang Teams" class="h-10 md:h-11 w-auto object-contain transition-transform group-hover:scale-[1.03]" src="../assets/logo-light.png" width="720" height="293"/>
+<img alt="Boomerang Teams" class="h-10 md:h-11 w-auto object-contain transition-transform group-hover:scale-[1.03]" src="../logo.png" width="2172" height="724"/>
 </a>
 <nav class="hidden lg:flex items-center gap-space-lg">
 <a class="font-label-text text-label-text text-on-surface-variant hover:text-primary transition-colors" href="../index.html#case-studies">Work</a>
@@ -202,7 +202,7 @@
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter-lg pb-space-xl">
 <div class="lg:col-span-5 flex flex-col gap-space-md">
 <a class="flex items-center gap-2 shrink-0 group focus:outline-none" href="../index.html">
-<img alt="Boomerang Teams" class="h-10 md:h-11 w-auto object-contain transition-transform group-hover:scale-[1.03]" src="../assets/logo-light.png" width="720" height="293"/>
+<img alt="Boomerang Teams" class="h-10 md:h-11 w-auto object-contain transition-transform group-hover:scale-[1.03]" src="../logo.png" width="2172" height="724"/>
 </a>
 <p class="font-body-md text-body-md text-on-surface-variant max-w-sm">
           Creative content and authority personal-branding agency engineered for high-growth leaders, founders, and modern teams across the globe.
@@ -245,7 +245,7 @@
 </main>
 <!-- Floating promo bar: dismissible, reappears after 14 days. Vanilla JS, independent of any other script. -->
 <div aria-live="polite" class="fixed inset-x-0 bottom-4 sm:bottom-6 z-30 px-margin flex justify-center pointer-events-none" id="promo-bar">
-<div class="promo-bar-panel pointer-events-auto flex items-center gap-space-sm bg-on-surface text-white rounded-2xl sm:rounded-full shadow-[0_20px_45px_-12px_rgba(10,15,18,.55)] px-space-md py-space-sm w-full sm:w-auto sm:max-w-xl">
+<div class="promo-bar-panel pointer-events-auto flex items-center gap-space-sm bg-[#0a0f12] text-white rounded-2xl sm:rounded-full shadow-[0_20px_45px_-12px_rgba(10,15,18,.55)] px-space-md py-space-sm w-full sm:w-auto sm:max-w-xl">
 <span aria-hidden="true" class="hidden sm:flex w-9 h-9 rounded-full bg-primary-container text-on-primary items-center justify-center shrink-0">
 <span class="material-symbols-outlined text-lg">auto_awesome</span>
 </span>

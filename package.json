@@ -1,0 +1,22 @@
+{
+  "name": "boomerangteams-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Boomerang Teams marketing site: static pages + a minimal leads API for the Book a Call modal.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "express": "^4.19.2",
+    "pg": "^8.12.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -69,6 +69,7 @@
     lenis.on('scroll', ScrollTrigger.update);
     gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
     gsap.ticker.lagSmoothing(0);
+    window.__lenis = lenis; // exposed so other scripts (e.g. book-call.js) can stop/start it
   }
   document.addEventListener('click', function (e) {
     var a = e.target.closest('a[href^="#"]');

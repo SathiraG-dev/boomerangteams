@@ -132,7 +132,7 @@
 <a class="font-label-text text-label-text text-on-surface-variant hover:text-primary transition-colors" data-path="faq" href="#faq">FAQ</a>
 </nav>
 <div class="flex items-center gap-space-sm shrink-0">
-<a class="inline-flex items-center gap-space-xs bg-primary-container hover:bg-primary text-on-primary font-label-text text-label-text px-space-lg py-space-sm rounded-full shadow-sm hover:shadow-md transition-all group" data-path="contact" href="#contact">
+<a class="inline-flex items-center gap-space-xs bg-primary-container hover:bg-primary text-on-primary font-label-text text-label-text px-space-lg py-space-sm rounded-full shadow-sm hover:shadow-md transition-all group" data-bc-open="" data-path="contact" href="#contact">
 <span class="tracking-wide">Book a call</span>
 <span class="material-symbols-outlined text-base transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">arrow_outward</span>
 </a>
@@ -251,7 +251,7 @@
 <p data-hero="sub" class="mt-space-md max-w-2xl font-body-lg text-body-lg text-on-surface-variant">A creative content and personal-branding studio in Colombo, Sri Lanka. We turn boring brands into internet famous — and people into brands.</p>
 <!-- CTAs -->
 <div data-hero="cta" class="mt-space-lg flex items-center justify-center flex-wrap gap-space-sm">
-<a class="inline-flex items-center gap-space-xs bg-primary-container hover:bg-primary text-on-primary font-label-text text-label-text px-space-lg py-space-sm rounded-full shadow-sm hover:shadow-md transition-all group" href="#contact">
+<a class="inline-flex items-center gap-space-xs bg-primary-container hover:bg-primary text-on-primary font-label-text text-label-text px-space-lg py-space-sm rounded-full shadow-sm hover:shadow-md transition-all group" data-bc-open="" href="#contact">
 <span>Book a call</span>
 <span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
 </a>
@@ -809,10 +809,109 @@
   });
 })();
 </script>
+<!-- ========================================================================= -->
+<!-- BOOK A CALL MODAL                                                         -->
+<!-- ========================================================================= -->
+<div aria-hidden="true" aria-labelledby="bc-title" aria-modal="true" class="bc-overlay hidden" id="book-call-modal" role="dialog">
+<div class="bc-backdrop" data-bc-close></div>
+<div class="bc-dialog" role="document">
+<div class="bc-top">
+<div class="bc-progress" aria-hidden="true">
+<span class="bc-bar" data-bc-bar="1"></span>
+<span class="bc-bar" data-bc-bar="2"></span>
+</div>
+<button aria-label="Close" class="bc-close" data-bc-close type="button">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="bc-scroll">
+<form id="bc-form" novalidate="">
+<input aria-hidden="true" autocomplete="off" class="bc-honeypot" id="bc-gotcha" name="_gotcha" tabindex="-1" type="text"/>
+<!-- STEP 1 — QUALIFY -->
+<section class="bc-step" data-bc-step="1">
+<h2 class="font-section-head text-[26px] sm:text-[32px] text-on-surface" id="bc-title">Let's talk about your brand.</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 mb-space-lg">Tell us where you're at — we'll come back with a plan, not a pitch deck.</p>
+<div class="bc-field-group">
+<span class="bc-label">Monthly marketing budget</span>
+<div aria-label="Monthly marketing budget" class="bc-radio-grid" role="radiogroup">
+<label class="bc-radio-card"><input name="budgetTier" type="radio" value="under-1500"/><span>Under $1,500</span></label>
+<label class="bc-radio-card"><input name="budgetTier" type="radio" value="1500-5000"/><span>$1,500 – $5,000</span></label>
+<label class="bc-radio-card"><input name="budgetTier" type="radio" value="5000-15000"/><span>$5,000 – $15,000</span></label>
+<label class="bc-radio-card"><input name="budgetTier" type="radio" value="15000-plus"/><span>$15,000+</span></label>
+<label class="bc-radio-card bc-radio-wide"><input name="budgetTier" type="radio" value="not-sure"/><span>Not sure yet</span></label>
+</div>
+</div>
+<div class="bc-grid">
+<div class="bc-field">
+<label class="bc-label" for="bc-name">Full name</label>
+<input autocomplete="name" class="bc-input" id="bc-name" name="fullName" required="" type="text"/>
+<p class="bc-error" data-bc-error-for="fullName"></p>
+</div>
+<div class="bc-field">
+<label class="bc-label" for="bc-email">Email</label>
+<input autocomplete="email" class="bc-input" id="bc-email" name="email" required="" type="email"/>
+<p class="bc-error" data-bc-error-for="email"></p>
+</div>
+<div class="bc-field">
+<label class="bc-label" for="bc-phone">Phone</label>
+<div class="bc-phone">
+<input aria-label="Country code" class="bc-dial" id="bc-dial" name="dialCode" type="text" value="+94"/>
+<input autocomplete="tel" class="bc-phone-input" id="bc-phone" name="phoneNumber" placeholder="7X XXX XXXX" required="" type="tel"/>
+</div>
+<p class="bc-error" data-bc-error-for="phone"></p>
+</div>
+<div class="bc-field">
+<label class="bc-label" for="bc-company">Company / website <span class="bc-optional">(optional)</span></label>
+<input autocomplete="organization" class="bc-input" id="bc-company" name="companyWebsite" type="text"/>
+</div>
+<div class="bc-field bc-field-wide">
+<label class="bc-label" for="bc-message">What do you need help with?</label>
+<textarea class="bc-input bc-textarea" id="bc-message" name="message" required=""></textarea>
+<p class="bc-error" data-bc-error-for="message"></p>
+</div>
+</div>
+<button class="bc-primary-btn" data-bc-next type="button">
+<span>Continue</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</section>
+<!-- STEP 2 — CONFIRM -->
+<section class="bc-step" data-bc-step="2" hidden="">
+<h2 class="font-section-head text-[26px] sm:text-[32px] text-on-surface">You're almost in.</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 mb-space-lg">Our team reviews every request personally — expect a reply within 2 hours for executive inquiries.</p>
+<div class="bc-summary" data-bc-summary></div>
+<p class="bc-form-error" data-bc-form-error></p>
+<div class="bc-step2-actions">
+<button class="bc-secondary-btn" data-bc-back type="button">
+<span class="material-symbols-outlined">arrow_back</span>
+<span>Back</span>
+</button>
+<button class="bc-primary-btn" data-bc-submit type="submit">
+<span data-bc-submit-label>Reserve my spot</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- SUCCESS -->
+<section class="bc-step bc-success" data-bc-step="success" hidden="">
+<div class="bc-success-icon"><span class="material-symbols-outlined">check</span></div>
+<h2 class="font-section-head text-[26px] sm:text-[32px] text-on-surface">Request received.</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Our team will review your request and reach out within 2 hours for executive inquiries. If it's urgent, WhatsApp us directly.</p>
+<a class="bc-whatsapp-link" href="https://wa.me/94756948357" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined">call</span>
+<span>WhatsApp us directly</span>
+</a>
+<button class="bc-primary-btn bc-success-close" data-bc-close type="button">Done</button>
+</section>
+</form>
+</div>
+</div>
+</div>
 <!-- WEB COMPONENT AND CLIENT INTERACTIONS SCRIPT -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
 <script src="script.js"></script>
 <script src="proof.js"></script>
+<script src="book-call.js"></script>
 </body></html>

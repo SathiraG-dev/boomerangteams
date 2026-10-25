@@ -262,3 +262,141 @@ span.logo-chip{max-width:none;height:auto}
   .promo-bar-panel { transition: opacity .2s ease; }
   .promo-bar-hide .promo-bar-panel { transform: none; }
 }
+
+/* ---------- Book a Call modal ---------- */
+.bc-overlay {
+  position: fixed; inset: 0; z-index: 200; display: flex; align-items: center; justify-content: center;
+  padding: 24px; font-family: 'Geist', sans-serif;
+}
+.bc-backdrop {
+  position: absolute; inset: 0; background: rgba(7,9,11,.72);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  animation: bc-backdrop-in .28s ease both;
+}
+.bc-dialog {
+  position: relative; display: flex; flex-direction: column; width: min(600px, 100%); max-height: min(88vh, 820px);
+  border-radius: 1.25rem; background: #171e21; border: 1px solid rgba(231,237,240,.1);
+  box-shadow: 0 40px 90px -24px rgba(0,0,0,.55), 0 0 0 1px rgba(40,171,201,.08);
+  animation: bc-dialog-in .32s cubic-bezier(.2,.8,.2,1) both;
+}
+@keyframes bc-backdrop-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes bc-dialog-in { from { opacity: 0; transform: translateY(18px) scale(.98); } to { opacity: 1; transform: none; } }
+
+.bc-top { display: flex; align-items: center; gap: 16px; padding: 20px 20px 0; flex: none; }
+.bc-progress { display: flex; gap: 6px; flex: 1 1; }
+.bc-bar { position: relative; height: 4px; flex: 1 1; border-radius: 9999px; background: #1f2629; overflow: hidden; }
+.bc-bar::after {
+  content: ''; position: absolute; inset: 0; background: #28ABC9; transform: scaleX(0);
+  transform-origin: left; transition: transform .45s cubic-bezier(.2,.8,.2,1);
+}
+.bc-bar.is-on::after { transform: scaleX(1); }
+.bc-close {
+  display: flex; align-items: center; justify-content: center; flex: none; width: 36px; height: 36px;
+  border: 0; border-radius: 9999px; background: #1f2629; color: #e7edf0; cursor: pointer;
+  transition: background-color .2s ease, transform .2s ease;
+}
+.bc-close:hover { background: #2a3134; transform: scale(1.06); }
+
+.bc-scroll { overflow-y: auto; padding: 20px 24px 28px; }
+@media (min-width: 640px) { .bc-scroll { padding: 24px 32px 32px; } }
+
+.bc-step { transition: opacity .32s cubic-bezier(.2,.8,.2,1), transform .38s cubic-bezier(.2,.8,.2,1); }
+.bc-step.bc-anim-in { opacity: 0; transform: translateX(18px); }
+.bc-step.bc-anim-out { opacity: 0; transform: translateX(-18px); pointer-events: none; }
+
+.bc-honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+
+.bc-label { display: block; margin-bottom: 8px; color: #b7c2c5; font: 700 13px/1.3 'Geist', sans-serif; }
+.bc-optional { color: #869195; font-weight: 500; text-transform: none; }
+
+.bc-field-group { margin-bottom: 20px; }
+.bc-radio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.bc-radio-card {
+  position: relative; display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 10px 14px;
+  border: 1.5px solid rgba(231,237,240,.14); border-radius: 12px; background: #13191c;
+  color: #e7edf0; font: 600 13.5px/1.3 'Geist', sans-serif; cursor: pointer;
+  transition: border-color .2s ease, background-color .2s ease, transform .2s ease;
+}
+.bc-radio-card:hover { border-color: rgba(97,213,244,.4); transform: translateY(-1px); }
+.bc-radio-card input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.bc-radio-card:has(input:checked) { border-color: #28ABC9; background: rgba(40,171,201,.12); }
+.bc-radio-card:has(input:focus-visible) { outline: 2px solid #61d5f4; outline-offset: 2px; }
+.bc-radio-wide { grid-column: 1 / -1; }
+
+.bc-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+@media (min-width: 640px) { .bc-grid { grid-template-columns: 1fr 1fr; } }
+.bc-field-wide { grid-column: 1 / -1; }
+
+/* !important here deliberately: Tailwind CDN's `forms` plugin (index.html's
+   ?plugins=forms) injects its own light-themed input/textarea reset after
+   styles.css in the cascade and otherwise wins on background/border/color. */
+.bc-input, .bc-phone {
+  display: block; width: 100%; height: 48px; padding: 0 14px; border-radius: 11px;
+  border: 1.5px solid rgba(231,237,240,.14) !important; background: #0d1316 !important; color: #e7edf0 !important;
+  font: 500 14.5px/1 'Geist', sans-serif; transition: border-color .2s ease, box-shadow .2s ease;
+}
+.bc-input::placeholder { color: #869195; opacity: 1; }
+.bc-input:focus, .bc-phone:focus-within {
+  outline: none; border-color: #28ABC9 !important; box-shadow: 0 0 0 3px rgba(40,171,201,.18);
+}
+.bc-textarea { height: 92px; min-height: 92px; max-height: 160px; padding: 12px 14px; line-height: 1.5; resize: vertical; }
+.bc-phone { display: flex; align-items: center; gap: 8px; padding: 0 8px 0 14px; }
+.bc-dial { flex: 0 0 auto; width: 54px; border: 0 !important; background: transparent !important; color: #e7edf0 !important; font: 600 14.5px/1 'Geist', sans-serif; padding: 0; }
+.bc-phone-input { flex: 1 1; height: 100%; border: 0 !important; background: transparent !important; color: #e7edf0 !important; font: 500 14.5px/1 'Geist', sans-serif; padding: 0; min-width: 0; }
+.bc-phone-input::placeholder { color: #869195; opacity: 1; }
+.bc-phone-input:focus { outline: none; }
+
+.bc-field.is-invalid .bc-input, .bc-field.is-invalid .bc-phone { border-color: #ffb4ab; }
+.bc-error { display: none; margin-top: 6px; color: #ffb4ab; font: 600 12.5px/1.4 'Geist', sans-serif; }
+.bc-field.is-invalid .bc-error { display: block; }
+.bc-form-error { display: none; margin: 0 0 14px; color: #ffb4ab; font: 600 13px/1.5 'Geist', sans-serif; text-align: center; }
+.bc-form-error.is-visible { display: block; }
+
+.bc-primary-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; height: 52px;
+  margin-top: 24px; border: 0; border-radius: 9999px; background: #28ABC9; color: #ffffff; cursor: pointer;
+  font: 700 15px/1 'Geist', sans-serif; letter-spacing: .01em; transition: background-color .2s ease, transform .18s ease, box-shadow .2s ease;
+  box-shadow: 0 10px 30px -10px rgba(40,171,201,.5);
+}
+.bc-primary-btn:hover { background: #61d5f4; transform: translateY(-1px); box-shadow: 0 14px 34px -10px rgba(40,171,201,.6); }
+.bc-primary-btn:disabled { opacity: .6; cursor: wait; transform: none; }
+.bc-primary-btn .material-symbols-outlined { font-size: 19px; transition: transform .2s ease; }
+.bc-primary-btn:hover .material-symbols-outlined { transform: translateX(2px); }
+
+.bc-step2-actions { display: flex; gap: 12px; align-items: center; }
+.bc-step2-actions .bc-primary-btn { flex: 1 1; margin-top: 0; }
+.bc-secondary-btn {
+  display: inline-flex; align-items: center; gap: 6px; flex: 0 0 auto; height: 52px; padding: 0 18px;
+  border: 1.5px solid rgba(231,237,240,.14); border-radius: 9999px; background: transparent; color: #e7edf0;
+  font: 700 14px/1 'Geist', sans-serif; cursor: pointer; transition: border-color .2s ease, background-color .2s ease;
+}
+.bc-secondary-btn:hover { border-color: rgba(231,237,240,.3); background: rgba(231,237,240,.05); }
+
+.bc-summary { display: flex; flex-direction: column; gap: 10px; padding: 16px 18px; margin-bottom: 20px; border-radius: 12px; background: #0d1316; border: 1px solid rgba(231,237,240,.08); }
+.bc-summary-row { display: flex; justify-content: space-between; gap: 16px; font: 500 13.5px/1.4 'Geist', sans-serif; }
+.bc-summary-row dt { color: #869195; flex: 0 0 auto; }
+.bc-summary-row dd { margin: 0; color: #e7edf0; text-align: right; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.bc-success { text-align: center; padding-top: 8px; }
+.bc-success-icon {
+  display: flex; align-items: center; justify-content: center; width: 64px; height: 64px; margin: 0 auto 18px;
+  border-radius: 9999px; background: linear-gradient(180deg, #61d5f4, #28ABC9); color: #ffffff;
+  box-shadow: 0 16px 34px -12px rgba(40,171,201,.6); animation: bc-success-pop .45s cubic-bezier(.2,.8,.2,1) both;
+}
+@keyframes bc-success-pop { from { opacity: 0; transform: scale(.6); } to { opacity: 1; transform: scale(1); } }
+.bc-whatsapp-link {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; color: #61d5f4;
+  font: 700 14px/1 'Geist', sans-serif;
+}
+.bc-whatsapp-link:hover { text-decoration: underline; }
+
+@media (max-width: 639px) {
+  .bc-overlay { padding: 0; align-items: flex-end; }
+  .bc-dialog { width: 100%; max-height: 100dvh; height: 100dvh; border-radius: 0; }
+  .bc-scroll { flex: 1 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bc-backdrop, .bc-dialog, .bc-success-icon { animation: none; }
+  .bc-step, .bc-bar::after { transition: none; }
+}

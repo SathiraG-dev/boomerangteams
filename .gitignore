@@ -1,2 +1,4 @@
 .DS_Store
 client refference site/
+node_modules/
+.env

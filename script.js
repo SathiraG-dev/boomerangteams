@@ -1,129 +1,3 @@
-/* Boomerang Teams — hero 3D boomerang + scroll animation (GSAP / ScrollTrigger / Lenis). */
-;/* Hero 3D boomerang (fixed: single scope, one Three.js, sized to its container,
-   pauses off-screen, calm when reduced-motion is on). */
-(function () {
-  var container = document.getElementById('threejs-container-ANIMATION_6');
-  if (!container || typeof THREE === 'undefined') return;
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  var width = container.clientWidth || 600;
-  var height = container.clientHeight || 560;
-
-  var scene = new THREE.Scene();
-  var camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-  camera.position.set(0, 0, 10.4);
-
-  var renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: 'high-performance' });
-  renderer.setSize(width, height);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-  container.appendChild(renderer.domElement);
-
-  scene.add(new THREE.AmbientLight(0xffffff, 0.75));
-  var dir1 = new THREE.DirectionalLight(0x28abc9, 1.5); dir1.position.set(5, 8, 6); scene.add(dir1);
-  var dir2 = new THREE.DirectionalLight(0x0e5f73, 1.8); dir2.position.set(-6, -4, 4); scene.add(dir2);
-  var point = new THREE.PointLight(0x28abc9, 1.6, 20); point.position.set(0, 2, 4); scene.add(point);
-
-  var mainGroup = new THREE.Group();
-  scene.add(mainGroup);
-
-  // Boomerang silhouette matching the brand logo
-  var shape = new THREE.Shape();
-  shape.moveTo(-2.4, -0.6);
-  shape.quadraticCurveTo(-1.8, 1.6, 0.0, 2.2);
-  shape.quadraticCurveTo(1.8, 1.6, 2.4, -0.6);
-  shape.quadraticCurveTo(2.1, -1.0, 1.6, -0.6);
-  shape.quadraticCurveTo(1.1, 0.8, 0.0, 1.3);
-  shape.quadraticCurveTo(-1.1, 0.8, -1.6, -0.6);
-  shape.quadraticCurveTo(-2.1, -1.0, -2.4, -0.6);
-
-  var geo = new THREE.ExtrudeGeometry(shape, {
-    steps: 2, depth: 0.35, bevelEnabled: true,
-    bevelThickness: 0.12, bevelSize: 0.08, bevelOffset: 0, bevelSegments: 5
-  });
-  geo.center();
-
-  var mat = new THREE.MeshPhongMaterial({
-    color: 0x28abc9, emissive: 0x073844, specular: 0xffffff, shininess: 90,
-    transparent: true, opacity: 0.96
-  });
-  var boom = new THREE.Mesh(geo, mat);
-  mainGroup.add(boom);
-
-  var ring1 = new THREE.Mesh(new THREE.TorusGeometry(3.2, 0.025, 16, 100),
-    new THREE.MeshBasicMaterial({ color: 0x28abc9, transparent: true, opacity: 0.45 }));
-  ring1.rotation.x = Math.PI / 3; ring1.rotation.y = Math.PI / 6; mainGroup.add(ring1);
-
-  var ring2 = new THREE.Mesh(new THREE.TorusGeometry(2.7, 0.018, 16, 100),
-    new THREE.MeshBasicMaterial({ color: 0x0e5f73, transparent: true, opacity: 0.3 }));
-  ring2.rotation.x = -Math.PI / 4; ring2.rotation.z = Math.PI / 5; mainGroup.add(ring2);
-
-  var count = window.innerWidth < 768 ? 70 : 140;
-  var pGeo = new THREE.BufferGeometry();
-  var pPos = new Float32Array(count * 3);
-  for (var i = 0; i < count * 3; i += 3) {
-    pPos[i] = (Math.random() - 0.5) * 14;
-    pPos[i + 1] = (Math.random() - 0.5) * 10;
-    pPos[i + 2] = (Math.random() - 0.5) * 8;
-  }
-  pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
-  var particles = new THREE.Points(pGeo, new THREE.PointsMaterial({ color: 0x28abc9, size: 0.06, transparent: true, opacity: 0.65 }));
-  scene.add(particles);
-
-  // Pointer tilt (relative to the hero visual) + scroll coupling
-  var mx = 0, my = 0, tx = 0, ty = 0;
-  var host = container.closest('[data-hero="visual"]') || container;
-  host.addEventListener('pointermove', function (e) {
-    var r = host.getBoundingClientRect();
-    tx = ((e.clientX - r.left) / r.width - 0.5) * 2;
-    ty = ((e.clientY - r.top) / r.height - 0.5) * 2;
-  });
-  host.addEventListener('pointerleave', function () { tx = 0; ty = 0; });
-
-  function resize() {
-    var w = container.clientWidth || width, h = container.clientHeight || height;
-    camera.aspect = w / h; camera.updateProjectionMatrix(); renderer.setSize(w, h);
-    if (reduce) renderer.render(scene, camera);
-  }
-  if ('ResizeObserver' in window) new ResizeObserver(resize).observe(container);
-  else window.addEventListener('resize', resize);
-
-  var visible = true;
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function (en) { visible = en[0].isIntersecting; }, { threshold: 0 }).observe(container);
-    // Re-check immediately in case the observer's first callback raced the page's layout/scroll setup (Lenis, async Tailwind) and misreported.
-    requestAnimationFrame(function () {
-      var r = container.getBoundingClientRect();
-      if (r.bottom > 0 && r.top < window.innerHeight) visible = true;
-    });
-  }
-
-  var clock = new THREE.Clock();
-  function frame() {
-    requestAnimationFrame(frame);
-    if (!visible || document.hidden) return;
-    var t = clock.getElapsedTime();
-    var sy = window.pageYOffset || 0;
-    mx += (tx - mx) * 0.06; my += (ty - my) * 0.06;
-
-    var targetY = mx * 0.75 + sy * 0.0035;
-    var targetX = my * 0.45 - sy * 0.002;
-    boom.rotation.z = Math.sin(t * 1.5) * 0.2 + sy * 0.003;
-    boom.rotation.y += (targetY - boom.rotation.y) * 0.05 + 0.005;
-    boom.rotation.x += (targetX - boom.rotation.x) * 0.05;
-
-    mainGroup.position.y = Math.sin(t * 2.0) * 0.18 - Math.min(sy * 0.002, 2.5);
-    ring1.rotation.z += 0.008;
-    ring2.rotation.y += 0.012;
-    particles.rotation.y = t * 0.03;
-    particles.rotation.x = t * 0.015;
-    renderer.render(scene, camera);
-  }
-
-  if (reduce) { boom.rotation.set(0.25, -0.5, 0.1); renderer.render(scene, camera); }
-  else frame();
-})();
-
-;
 /* Boomerang Teams — scroll animation layer (GSAP + ScrollTrigger + Lenis) */
 (function () {
   'use strict';
@@ -220,11 +94,9 @@
     tl.fromTo('#site-header', { yPercent: -100 }, { yPercent: 0, duration: .8, clearProps: 'transform' }, 0)
       .fromTo('[data-hero="eyebrow"]', { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: .7, clearProps: 'transform' }, .15)
       .to(words, { yPercent: 0, duration: 1.05, stagger: .065, ease: 'power4.out' }, .25)
-      .fromTo('[data-hero="visual"]', { opacity: 0, scale: .9 }, { opacity: 1, scale: 1, duration: 1.4, ease: 'power2.out', clearProps: 'transform' }, .35)
       .fromTo('[data-hero="sub"]', { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: .8, clearProps: 'transform' }, 1.0)
       .fromTo('[data-hero="cta"]', { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: .8, clearProps: 'transform' }, 1.15)
-      .fromTo('#hero-stats', { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1, clearProps: 'transform' }, 1.0)
-      .from('#hero-stats > div', { opacity: 0, y: 24, duration: .7, stagger: .1, clearProps: 'opacity,transform' }, 1.2);
+      .fromTo('[data-hero="trust"]', { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: .7, clearProps: 'transform' }, 1.25);
     if (ul) tl.to(ul, { strokeDashoffset: 0, duration: .9, ease: 'power2.inOut' }, 1.1);
 
     // counters: start when the band is on screen
@@ -301,81 +173,6 @@
     });
   }
 
-  /* ---------- featured work: pinned horizontal gallery ---------- */
-  function initWork() {
-    var sec = $('#work'), track = $('#work-carousel');
-    if (!sec || !track) return;
-    var prev = $('#gallery-prev'), next = $('#gallery-next');
-    var cards = $$(':scope > .interactive-card', track);
-    var countEl = $('#work-count'), fill = $('#work-progress-fill');
-    var mm = gsap.matchMedia();
-    var st = null, stepPx = 340;
-
-    // native swipe carousel for touch / small screens
-    prev && prev.addEventListener('click', function () { if (!st) track.scrollBy({ left: -340, behavior: 'smooth' }); });
-    next && next.addEventListener('click', function () { if (!st) track.scrollBy({ left: 340, behavior: 'smooth' }); });
-
-    mm.add('(min-width: 1024px)', function () {
-      sec.classList.add('work-pinned');
-      track.classList.remove('scroll-smooth');
-      var dist = function () { return Math.max(0, track.scrollWidth - track.clientWidth); };
-      var tween = gsap.to(track, { x: function () { return -dist(); }, ease: 'none',
-        scrollTrigger: { trigger: sec, start: 'top 80px', end: function () { return '+=' + dist(); },
-          pin: true, pinSpacing: true, scrub: .7, anticipatePin: 1, invalidateOnRefresh: true,
-          onRefresh: function (self) {
-            var c = cards[1], a = cards[0];
-            if (c && a) stepPx = c.getBoundingClientRect().left - a.getBoundingClientRect().left || stepPx;
-          },
-          onUpdate: function (self) {
-            if (fill) fill.style.transform = 'scaleX(' + self.progress + ')';
-            if (countEl) {
-              var shift = self.progress * dist();
-              var first = Math.min(cards.length, Math.floor(shift / stepPx + .35) + 1);
-              var last = Math.min(cards.length, Math.floor((shift + track.clientWidth) / stepPx + .05));
-              var pad = function (n) { return String(n).padStart(2, '0'); };
-              countEl.textContent = pad(first) + '–' + pad(Math.max(first, last)) + ' / ' + pad(cards.length);
-            }
-          } } });
-      st = tween.scrollTrigger;
-
-      // image parallax inside each card
-      cards.forEach(function (card) {
-        var img = $('.work-img', card); if (!img) return;
-        gsap.fromTo(img, { xPercent: -7 }, { xPercent: 7, ease: 'none',
-          scrollTrigger: { trigger: card, containerAnimation: tween, start: 'left right', end: 'right left', scrub: true } });
-      });
-
-      var go = function (dir) {
-        var cur = Math.round(st.progress * dist() / stepPx);
-        var idx = Math.max(0, Math.min(cards.length - 1, cur + dir));
-        var p = Math.min(1, (idx * stepPx) / Math.max(1, dist()));
-        var y = st.start + p * (st.end - st.start);
-        if (lenis) lenis.scrollTo(y, { duration: 1.1 }); else window.scrollTo({ top: y, behavior: 'smooth' });
-      };
-      var onPrev = function () { go(-1); }, onNext = function () { go(1); };
-      prev && prev.addEventListener('click', onPrev); next && next.addEventListener('click', onNext);
-
-      return function () {
-        sec.classList.remove('work-pinned'); st = null;
-        prev && prev.removeEventListener('click', onPrev); next && next.removeEventListener('click', onNext);
-      };
-    });
-  }
-
-  /* ---------- "VIEW" cursor over work cards ---------- */
-  function initCursor() {
-    if (!finePointer) return;
-    var cur = document.createElement('div'); cur.id = 'play-cursor'; cur.textContent = 'VIEW';
-    document.body.appendChild(cur);
-    var qx = gsap.quickTo(cur, 'x', { duration: .45, ease: 'power3' });
-    var qy = gsap.quickTo(cur, 'y', { duration: .45, ease: 'power3' });
-    window.addEventListener('pointermove', function (e) { qx(e.clientX); qy(e.clientY); }, { passive: true });
-    $$('#work-carousel > .interactive-card').forEach(function (c) {
-      c.addEventListener('pointerenter', function () { gsap.to(cur, { scale: 1, duration: .35, ease: 'back.out(1.8)', overwrite: 'auto' }); });
-      c.addEventListener('pointerleave', function () { gsap.to(cur, { scale: 0, duration: .25, ease: 'power2.in', overwrite: 'auto' }); });
-    });
-  }
-
   /* ---------- results: bars + follower counters ---------- */
   function initResults() {
     $$('#results .progress-bar').forEach(function (bar) {
@@ -397,15 +194,58 @@
     });
   }
 
-  /* ---------- process connector ---------- */
+  /* ---------- client reviews: image parallax + metric chip reveal ---------- */
+  function initReviews() {
+    var rows = $$('.review-row');
+    if (!rows.length) return;
+
+    rows.forEach(function (row) {
+      var chips = $$('.metric-chip', row);
+      if (chips.length) {
+        gsap.set(chips, { opacity: 0, y: 10 });
+        ScrollTrigger.create({ trigger: row, start: 'top 82%', once: true, onEnter: function () {
+          gsap.to(chips, { opacity: 1, y: 0, duration: .6, stagger: .08, ease: 'power3.out' });
+        } });
+      }
+      var video = $('.video-card', row);
+      if (video) {
+        gsap.set(video, { opacity: 0, y: 14 });
+        ScrollTrigger.create({ trigger: row, start: 'top 78%', once: true, onEnter: function () {
+          gsap.to(video, { opacity: 1, y: 0, duration: .6, ease: 'power3.out', delay: .15 });
+        } });
+      }
+    });
+
+    if (!finePointer) return;
+    $$('.review-img').forEach(function (img) {
+      gsap.fromTo(img, { yPercent: -7 }, { yPercent: 7, ease: 'none',
+        scrollTrigger: { trigger: img.closest('.review-row'), start: 'top bottom', end: 'bottom top', scrub: true } });
+    });
+  }
+
+  /* ---------- process: pinned horizontal scroll (desktop) / static stack (mobile) ---------- */
   function initProcess() {
-    var line = $('#process-line'); if (!line) return;
-    var dots = $$('#process .proc-dot');
-    gsap.to(line, { scaleX: 1, ease: 'none', scrollTrigger: {
-      trigger: '#process-grid', start: 'top 82%', end: 'top 30%', scrub: true,
-      onUpdate: function (s) {
-        dots.forEach(function (d, i) { d.classList.toggle('on', s.progress >= [0.02, 0.5, 0.98][i]); });
-      } } });
+    var pin = $('#process-pin'), track = $('#process-track'), line = $('#process-line');
+    if (!pin || !track) return;
+
+    ScrollTrigger.matchMedia({
+      '(min-width: 901px)': function () {
+        var distance = function () { return Math.max(0, track.scrollWidth - pin.clientWidth); };
+        var st = ScrollTrigger.create({
+          trigger: pin, start: 'top top', end: function () { return '+=' + distance(); },
+          pin: true, scrub: true, invalidateOnRefresh: true,
+          onUpdate: function (self) {
+            var d = distance();
+            gsap.set(track, { x: -d * self.progress });
+            if (line) gsap.set(line, { scaleX: self.progress });
+          }
+        });
+        return function () { st.kill(); gsap.set(track, { clearProps: 'transform' }); };
+      },
+      '(max-width: 900px)': function () {
+        if (line) gsap.set(line, { scaleX: 0 });
+      }
+    });
   }
 
   /* ---------- final CTA ---------- */
@@ -531,7 +371,7 @@
 
     var header = $('#site-header'), bar = $('#scroll-progress');
     var navLinks = $$('header nav a[data-path]');
-    var secs = ['work', 'services', 'results', 'reviews', 'process', 'packages', 'contact'].map(function (id) { return $('#' + id); });
+    var secs = ['trusted', 'about', 'work', 'process', 'founder', 'reviews', 'faq', 'packages', 'contact'].map(function (id) { return $('#' + id); });
     var order = secs.filter(Boolean).sort(function (a, b) { return a.compareDocumentPosition(b) & 4 ? -1 : 1; });
     var lastY = -1, lastRet = -1, idx = 0, curNav = '';
 
@@ -590,9 +430,8 @@
     initReveals();
     initMarquee();
     initServices();
-    initWork();
-    initCursor();
     initResults();
+    initReviews();
     initProcess();
     initCTA();
     initMicro();

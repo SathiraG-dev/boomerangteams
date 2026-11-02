@@ -78,7 +78,7 @@
     if (!id || id.length < 2) return;
     var t = $(id); if (!t) return;
     e.preventDefault();
-    if (lenis) lenis.scrollTo(t, { offset: -72, duration: 1.6 });
+    if (lenis) lenis.scrollTo(t, { offset: -112, duration: 1.6 });
     else t.scrollIntoView({ behavior: 'smooth' });
   });
 

@@ -66,7 +66,11 @@
   var lenis = null;
   if (typeof Lenis !== 'undefined') {
     lenis = new Lenis({ duration: 1.15, smoothWheel: true,
-      easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); } });
+      easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+      // Let wheel/touch scroll pass through untouched inside elements with their own
+      // internal scroll (the Book a Call modal) — otherwise Lenis hijacks and
+      // preventDefault()s those events even while "stopped", so the modal never scrolls.
+      prevent: function (node) { return !!(node && node.closest && node.closest('.bc-scroll')); } });
     lenis.on('scroll', ScrollTrigger.update);
     gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
     gsap.ticker.lagSmoothing(0);

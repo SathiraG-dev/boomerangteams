@@ -1,4 +1,4 @@
-/* Boomerang Teams — static site + minimal leads API.
+/* Boomerang Teams: static site + minimal leads API.
    Serves the same public files the site always has, plus POST /api/book-call
    for the Book a Call modal. No ORM: one append-only table, raw SQL. */
 'use strict';
@@ -9,6 +9,7 @@ const path = require('path');
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const { Pool } = require('pg');
+const { sendLeadEmail } = require('./mailer.js');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -17,7 +18,7 @@ app.set('trust proxy', 1); // Railway terminates TLS at its edge; needed for cor
 app.use(cookieParser(process.env.ADMIN_SESSION_SECRET));
 
 /* ---------- static files (explicit allow-list — never blanket-serve the repo root) ---------- */
-const ROOT_FILES = ['index.html', 'case-studies.html', 'script.js', 'styles.css', 'proof.js', 'book-call.js', 'admin.css', 'logo.png'];
+const ROOT_FILES = ['index.html', 'case-studies.html', 'script.js', 'styles.css', 'tailwind.css', 'proof.js', 'book-call.js', 'admin.css', 'logo.png'];
 ROOT_FILES.forEach(function (f) {
   app.get('/' + f, function (req, res) { res.sendFile(path.join(__dirname, f)); });
 });
@@ -135,6 +136,7 @@ app.post('/api/book-call', async function (req, res) {
       [d.budgetTier || null, d.fullName, d.email, d.phone, d.companyWebsite || null, d.message]
     );
     res.json({ ok: true });
+    sendLeadEmail(d); // fire-and-forget: never block or fail the lead save on email trouble
   } catch (err) {
     console.error('[leads] insert failed:', err);
     res.status(500).json({ ok: false, error: 'Something went wrong saving your request. Please try again or WhatsApp us directly.' });

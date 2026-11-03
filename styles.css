@@ -28,11 +28,30 @@
             padding: .14em 0 .24em; margin: -.14em 0 -.24em; }
   .w-in { display: inline-block; will-change: transform; }
 
+  /* "1,000,000 Views" liquid cursor glow: a blue radial highlight that tracks the
+     pointer, revealed through the text via background-clip, with a soft blurred glow
+     riding behind it for a "liquid" feel. --mx/--my are set by script.js on pointermove. */
+  #hero-views { position: relative; isolation: isolate; cursor: default; }
+  #hero-views::after {
+    content: attr(data-text);
+    position: absolute; inset: 0; z-index: 1;
+    background-image: radial-gradient(220px circle at var(--mx, 50%) var(--my, 50%),
+      #d6f6ff 0%, #8ee9ff 18%, #61d5f4 38%, #28abc9 58%, transparent 78%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    opacity: 0; transition: opacity .5s ease;
+    pointer-events: none;
+    filter: drop-shadow(0 0 22px rgba(97,213,244,.65)) drop-shadow(0 0 48px rgba(40,171,201,.35));
+  }
+  #hero-views:hover::after { opacity: 1; }
+  @media (prefers-reduced-motion: reduce) {
+    #hero-views::after { transition: none; }
+  }
+
   /* Header compact on scroll */
   #site-header { transition: box-shadow .3s ease, background-color .3s ease; }
   #site-header > div { transition: height .35s cubic-bezier(.2,.8,.2,1); }
   #site-header.is-compact > div { height: 64px; }
-  #site-header.is-compact { box-shadow: 0 10px 32px -14px rgba(0,0,0,.45), 0 0 26px -10px rgba(40,171,201,.3); }
+  #site-header.is-compact { box-shadow: 0 14px 32px -16px rgba(0,0,0,.4); }
 
   /* Scroll progress bar */
   #scroll-progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 60;
@@ -181,13 +200,14 @@
 .work-card-cta:hover { transform: translateY(-3px); }
 
 /* ---------- Testimonials placeholder rail ---------- */
-.testimonial-scroller { grid-auto-columns: min(60vw, 230px); }
-@media (min-width: 768px) { .testimonial-scroller { grid-auto-columns: min(28vw, 240px); } }
-@media (min-width: 1200px) { .testimonial-scroller { grid-auto-columns: min(17vw, 240px); } }
-.testi-card { display: flex; flex-direction: column; scroll-snap-align: start; padding-bottom: 20px; }
+.testimonial-scroller { grid-auto-columns: min(80vw, 320px); }
+@media (min-width: 768px) { .testimonial-scroller { grid-auto-columns: min(38vw, 340px); } }
+@media (min-width: 1200px) { .testimonial-scroller { grid-auto-columns: min(26vw, 365px); } }
+.testi-card { display: flex; flex-direction: column; gap: 12px; scroll-snap-align: start; padding-bottom: 20px; }
 .testi-frame {
-  position: relative; width: 100%; aspect-ratio: 9 / 16; border-radius: 15px; overflow: hidden;
-  background: #3a3f44; border: 1px solid rgba(255,255,255,.08);
+  position: relative; width: 100%; aspect-ratio: 9 / 16; border-radius: 10px; overflow: hidden;
+  background: radial-gradient(120% 120% at 50% 15%, #171e21 0%, #0d1316 70%);
+  border: 1px solid rgba(40,171,201,.2);
   display: flex; align-items: center; justify-content: center;
 }
 .testi-category {
@@ -195,9 +215,9 @@
   background: rgba(10,15,18,.65); backdrop-filter: blur(6px); color: #e7edf0;
   font: 700 11px/1.3 Inter, sans-serif; letter-spacing: .05em; text-transform: uppercase;
 }
-.testi-brandmark { color: #28ABC9; font: 800 15px/1.3 Inter, sans-serif; letter-spacing: -.01em; text-align: center; padding: 0 16px; }
-.testi-info { padding-top: 16px; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
-.testi-name { font: 700 17px/1.3 Inter, sans-serif; color: #e7edf0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.testi-logo { width: 58%; max-width: 190px; height: auto; object-fit: contain; }
+.testi-info { padding-top: 4px; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.testi-name { font: 700 16px/1.3 Inter, sans-serif; color: #e7edf0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .testi-role { font: 400 14px/1.3 Inter, sans-serif; color: #b7c2c5; }
 
 /* ---------- Process: pinned horizontal-scroll mechanic ---------- */
@@ -291,7 +311,7 @@ span.logo-chip{max-width:none;height:auto}
 }
 .bc-close:hover { background: #2a3134; transform: scale(1.06); }
 
-.bc-scroll { overflow-y: auto; padding: 20px 24px 28px; }
+.bc-scroll { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 20px 24px 28px; }
 @media (min-width: 640px) { .bc-scroll { padding: 24px 32px 32px; } }
 
 .bc-step { transition: opacity .32s cubic-bezier(.2,.8,.2,1), transform .38s cubic-bezier(.2,.8,.2,1); }

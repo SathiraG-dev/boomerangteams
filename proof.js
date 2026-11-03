@@ -121,7 +121,7 @@
       '<div class="testi-card" data-cf-video="">' +
         '<div class="testi-frame">' +
           '<span class="testi-category">' + esc(c.industry) + '</span>' +
-          '<span class="testi-brandmark">Boomerang Teams</span>' +
+          '<img class="testi-logo" src="logo.png" alt="Boomerang Teams" loading="lazy" decoding="async"/>' +
         '</div>' +
         '<div class="testi-info">' +
           '<span class="testi-name">' + esc(c.name) + '</span>' +

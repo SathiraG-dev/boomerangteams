@@ -1,9 +1,10 @@
-/* Boomerang Teams — scroll animation layer (GSAP + ScrollTrigger + Lenis) */
+/* Boomerang Teams: scroll animation layer (GSAP + ScrollTrigger + Lenis) */
 (function () {
   'use strict';
   var root = document.documentElement;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  var isDesktopArc = window.matchMedia('(min-width: 768px)').matches;
   var NS = 'http://www.w3.org/2000/svg';
   var $ = function (s, c) { return (c || document).querySelector(s); };
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
@@ -78,7 +79,7 @@
     if (!id || id.length < 2) return;
     var t = $(id); if (!t) return;
     e.preventDefault();
-    if (lenis) lenis.scrollTo(t, { offset: -112, duration: 1.6 });
+    if (lenis) lenis.scrollTo(t, { offset: -128, duration: 1.6 });
     else t.scrollIntoView({ behavior: 'smooth' });
   });
 
@@ -108,6 +109,16 @@
         countTo(c, parseInt(c.getAttribute('data-target'), 10), { suffix: c.getAttribute('data-suffix') || '', duration: 1.8, delay: 0.7 + i * .12 });
       });
     } });
+
+    // liquid cursor glow on "1,000,000 Views": track pointer position as CSS vars
+    var views = $('#hero-views');
+    if (views && !reduce) {
+      views.addEventListener('pointermove', function (e) {
+        var r = views.getBoundingClientRect();
+        views.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+        views.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+      });
+    }
   }
 
   /* ---------- generic scroll reveals ---------- */
@@ -129,8 +140,9 @@
 
   /* ---------- marquee (fixes the missing keyframes) ---------- */
   function initMarquee() {
-    var track = $('[class*="animate-[marquee"]');
-    if (!track) return;
+    $$('[class*="animate-[marquee"]').forEach(initMarqueeTrack);
+  }
+  function initMarqueeTrack(track) {
     track.className = track.className.replace(/animate-\[[^\]]+\]/, '');
     var set = $$(':scope > *', track).map(function (n) { return n.cloneNode(true); });
     var gap = parseFloat(getComputedStyle(track).columnGap) || 0;
@@ -324,7 +336,7 @@
     draw.style.strokeDasharray = '1'; draw.style.strokeDashoffset = '1';
     ghost.after(draw);
 
-    var total = ghost.getTotalLength(), N = 900, S = [];
+    var total = ghost.getTotalLength(), N = isDesktopArc ? 900 : 300, S = [];
     for (var i = 0; i <= N; i++) { var p = ghost.getPointAtLength(total * i / N); S.push({ l: i / N, x: p.x, y: p.y }); }
 
     // flying boomerang (fixed layer)
@@ -355,10 +367,15 @@
 
     // geometry cache
     var sx = 1, sy = 1, top = 0, docH = 1;
+    var secs = ['trusted', 'about', 'work', 'process', 'founder', 'reviews', 'faq', 'packages', 'contact'].map(function (id) { return $('#' + id); });
+    var order = secs.filter(Boolean).sort(function (a, b) { return a.compareDocumentPosition(b) & 4 ? -1 : 1; });
+    var secTops = [];
     function measure() {
       var r = svg.getBoundingClientRect();
       sx = r.width / VBW; sy = r.height / VBH; top = r.top + window.scrollY;
       docH = document.documentElement.scrollHeight;
+      // cache section offsets once per layout pass instead of reading getBoundingClientRect() every scroll frame
+      secTops = order.map(function (s) { return { id: s.id, top: s.getBoundingClientRect().top + window.scrollY }; });
     }
     measure();
     ScrollTrigger.addEventListener('refresh', measure);
@@ -372,8 +389,6 @@
 
     var header = $('#site-header'), bar = $('#scroll-progress');
     var navLinks = $$('header nav a[data-path]');
-    var secs = ['trusted', 'about', 'work', 'process', 'founder', 'reviews', 'faq', 'packages', 'contact'].map(function (id) { return $('#' + id); });
-    var order = secs.filter(Boolean).sort(function (a, b) { return a.compareDocumentPosition(b) & 4 ? -1 : 1; });
     var lastY = -1, lastRet = -1, idx = 0, curNav = '';
 
     function update() {
@@ -384,9 +399,9 @@
       if (header) header.classList.toggle('is-compact', y > 40);
       if (bar) bar.style.transform = 'scaleX(' + Math.min(1, y / Math.max(1, docH - vh)) + ')';
 
-      // scrollspy
+      // scrollspy (cached offsets, no layout read on the scroll path)
       var active = '';
-      order.forEach(function (s) { if (s.getBoundingClientRect().top <= vh * .4) active = s.id; });
+      secTops.forEach(function (s) { if (s.top - y <= vh * .4) active = s.id; });
       if (active !== curNav) {
         curNav = active;
         navLinks.forEach(function (a) { a.classList.toggle('is-current', a.getAttribute('data-path') === active); });
@@ -406,20 +421,23 @@
         else if (!passed && n.done && ty < n.cy - 90) { n.done = false; gsap.to(n.el, { opacity: .25, duration: .3 }); }
       });
 
-      // flying boomerang
-      var fx = s.x * sx, fy = vh * .6;
-      var vis = Math.max(0, Math.min(1, (y - 260) / 420));
-      var e = ease(ret), sc = 1;
-      if (btn && ret > 0) {
-        var r = btn.getBoundingClientRect();
-        fx += (r.left + r.width / 2 - fx) * e;
-        fy += (r.top + r.height / 2 - fy) * e;
-        sc = 1 - .45 * e;
-        layer.classList.toggle('front', ret > .02);
-        if (ret > .985) { vis = 0; if (!hit) { hit = true; btn.classList.add('cta-hit'); } }
-        else if (hit) { hit = false; btn.classList.remove('cta-hit'); }
-      } else { layer.classList.remove('front'); if (hit) { hit = false; btn && btn.classList.remove('cta-hit'); } }
-      setX(fx); setY(fy); setR(y * .32 + e * 540); setSX(sc); setSY(sc); setO(vis);
+      // flying boomerang: desktop only — #fly-layer is display:none below 768px, so skip
+      // the per-frame position math entirely there instead of computing it for nothing
+      if (isDesktopArc) {
+        var fx = s.x * sx, fy = vh * .6;
+        var vis = Math.max(0, Math.min(1, (y - 260) / 420));
+        var e = ease(ret), sc = 1;
+        if (btn && ret > 0) {
+          var r = btn.getBoundingClientRect();
+          fx += (r.left + r.width / 2 - fx) * e;
+          fy += (r.top + r.height / 2 - fy) * e;
+          sc = 1 - .45 * e;
+          layer.classList.toggle('front', ret > .02);
+          if (ret > .985) { vis = 0; if (!hit) { hit = true; btn.classList.add('cta-hit'); } }
+          else if (hit) { hit = false; btn.classList.remove('cta-hit'); }
+        } else { layer.classList.remove('front'); if (hit) { hit = false; btn && btn.classList.remove('cta-hit'); } }
+        setX(fx); setY(fy); setR(y * .32 + e * 540); setSX(sc); setSY(sc); setO(vis);
+      }
     }
     gsap.ticker.add(update);
     update();

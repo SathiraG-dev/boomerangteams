@@ -204,7 +204,7 @@
       showFormError((r.data && r.data.error) || 'Something went wrong. Please try again or WhatsApp us directly.');
     }).catch(function () {
       setLoading(false);
-      showFormError('Network error — please check your connection and try again, or WhatsApp us directly.');
+      showFormError('Network error. Please check your connection and try again, or book a call directly.');
     });
   }
 

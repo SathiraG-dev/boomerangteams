@@ -97,7 +97,7 @@ function leadsListPage(opts) {
       '<td><a class="adm-table-link" href="/admin/leads/' + l.id + '">' + escapeHtml(l.full_name) + '</a></td>' +
       '<td>' + escapeHtml(l.email) + '</td>' +
       '<td>' + escapeHtml(l.phone) + '</td>' +
-      '<td>' + escapeHtml(l.budget_tier || '—') + '</td>' +
+      '<td>' + escapeHtml(l.budget_tier || 'N/A') + '</td>' +
       '<td class="adm-truncate">' + escapeHtml((l.message || '').slice(0, 60)) + (l.message && l.message.length > 60 ? '…' : '') + '</td>' +
       '<td>' + statusBadge(l.status) + '</td>' +
       '<td>' + fmtDate(l.created_at) + '</td>' +
@@ -106,7 +106,7 @@ function leadsListPage(opts) {
 
   var table = leads.length
     ? '<div class="adm-table-wrap"><table class="adm-table"><thead><tr>' +
-      '<th>Name</th><th>Email</th><th>Phone</th><th>Budget</th><th>Message</th><th>Status</th><th>Submitted</th>' +
+      '<th>Name</th><th>Email</th><th>Phone</th><th>Revenue</th><th>Message</th><th>Status</th><th>Submitted</th>' +
       '</tr></thead><tbody>' + rows + '</tbody></table></div>'
     : '<p class="adm-empty">No leads match this filter.</p>';
 
@@ -130,7 +130,7 @@ function leadDetailPage(opts) {
     '<dl class="adm-dl">' +
     '<dt>Email</dt><dd><a href="mailto:' + escapeHtml(l.email) + '">' + escapeHtml(l.email) + '</a></dd>' +
     '<dt>Phone</dt><dd>' + escapeHtml(l.phone) + '</dd>' +
-    '<dt>Budget tier</dt><dd>' + escapeHtml(l.budget_tier || '—') + '</dd>' +
+    '<dt>Monthly revenue</dt><dd>' + escapeHtml(l.budget_tier || 'N/A') + '</dd>' +
     '<dt>Company / website</dt><dd>' + escapeHtml(l.company_website || '—') + '</dd>' +
     '<dt>Source</dt><dd>' + escapeHtml(l.source) + '</dd>' +
     '<dt>Submitted</dt><dd>' + fmtDate(l.created_at) + '</dd>' +
@@ -222,9 +222,9 @@ function metricsToText(metrics) {
 function metricsPreview(metrics) {
   try {
     var arr = typeof metrics === 'string' ? JSON.parse(metrics) : (metrics || []);
-    if (!arr.length) return '—';
+    if (!arr.length) return 'N/A';
     return arr.map(function (m) { return escapeHtml(m.label) + ': <strong>' + escapeHtml(m.value) + '</strong>'; }).join(' · ');
-  } catch (e) { return '—'; }
+  } catch (e) { return 'N/A'; }
 }
 
 function caseStudiesListPage(opts) {

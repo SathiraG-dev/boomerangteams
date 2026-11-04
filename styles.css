@@ -238,7 +238,7 @@
 .process-card { width: min(80vw, 760px); flex: none; display: grid; grid-template-columns: .6fr 1fr; align-items: center; gap: 32px; padding: 48px 0; }
 .process-num {
   font-family: 'Inter', sans-serif; font-size: clamp(120px, 15vw, 220px); line-height: .78;
-  color: transparent; -webkit-text-stroke: 2px rgba(97,213,244,.35); letter-spacing: -.02em;
+  color: #28abc9; letter-spacing: -.02em;
 }
 .process-card-body { display: flex; flex-direction: column; gap: 4px; }
 .process-icon { color: #61d5f4; font-size: 28px; margin-bottom: 6px; }
